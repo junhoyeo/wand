@@ -50,3 +50,7 @@ button.selected {
 #save:active {
   background-color: rgb(89, 216, 212);
 }
+
+code {
+  width: min-content;
+}

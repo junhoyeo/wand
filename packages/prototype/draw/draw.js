@@ -1,4 +1,6 @@
 const sketch = document.getElementById('sketch')
+const output = document.getElementById('output')
+
 for (let i = 0; i < 30; i++) {
   let row = document.createElement('div')
 
@@ -15,18 +17,50 @@ for (let i = 0; i < 30; i++) {
   sketch.appendChild(row)
 }
 
-function exportMap() {}
+function exportMap() {
+  const tiles = Array.prototype.slice.call(document.getElementsByClassName('cell'))
+  let map = [];
+  let row = [];
+  tiles.forEach((tile, idx) => {
+    const value = Number(tile.className.includes('selected'))
+    row.push(value)
+    if ((idx + 1) % 60 == 0) {
+      map.push(row)
+      row = []
+    }
+  })
+  return map
+}
+
+function loadMap() {
+
+  function setTileState(tile, state) {
+    tile.className = `cell${ state ? ' selected' : '' }`
+  }
+
+  const map = JSON.parse(localStorage.getItem('map'))
+  const tiles = Array.prototype.slice.call(document.getElementsByClassName('cell'))
+  tiles.forEach((tile, idx) => {
+    setTileState(tile, map[Math.floor(idx / 60)][idx % 60])
+  })
+  window.alert('이전에 저장한 지도를 불러왔습니다.')
+}
 
 document.body.addEventListener('click', function (event) {
   const element = event.target
   const classes = element.className.split(' ')
+  const map = JSON.stringify(exportMap())
   if (classes.includes('cell')) {
     if (classes.includes('selected'))
       element.className = 'cell'
     else
       element.className += ' selected'
+    output.innerHTML = map
   }
-  if (classes.includes('save')) {
-    console.log(exportMap())
+  if (element.id === 'save') {
+    localStorage.setItem('map', map)
+    window.alert('저장했습니다.')
+  } else if (element.id === 'load') {
+    loadMap()
   }
 }, false)
