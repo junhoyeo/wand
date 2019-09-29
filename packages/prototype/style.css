@@ -10,19 +10,28 @@
   margin-bottom: 0;
 }
 
+button.cell {
+  border: none;
+}
+
+button.cell:hover,
+button.cell:active {
+  border: 0.5px solid #c4c4c4;
+}
+
 button.start {
-  background-color: rgb(70, 156, 142);
-  border: 0.3px solid rgb(84, 190, 173);
+  background-color: #469c8e;
+  border: 0.3px solid #469c8e;
 }
 
 button.end {
-  background-color: rgb(209, 99, 126);
-  border: 0.3px solid rgb(230, 111, 141);
+  background-color: #d1637e;
+  border: 0.3px solid #d1637e;
 }
 
 button.path {
-  background-color: rgb(182, 233, 216);
-  border: 0.3px solid rgb(162, 209, 193);
+  background-color: #b6e9d8;
+  border: 0.3px solid #b6e9d8;
 }
 
 #search-route {
