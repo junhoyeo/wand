@@ -1,0 +1,52 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sketch {
+  margin: 1.2rem 0;
+}
+
+#sketch div {
+  flex-direction: row;
+  height: 20px;
+}
+
+button.cell {
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  border: 0.3px solid rgb(240, 240, 240);
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+button.selected {
+  background-color: rgb(53, 53, 53);
+  border: 0.3px solid rgb(77, 77, 77);
+}
+
+#save {
+  cursor: pointer;
+  background-color: mediumturquoise;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 0.8rem 5rem;
+  margin-bottom: 1rem;
+  border-radius: 25px;
+}
+
+#save:hover {
+  background-color: rgb(63, 189, 185);
+}
+
+#save:active {
+  background-color: rgb(89, 216, 212);
+}
