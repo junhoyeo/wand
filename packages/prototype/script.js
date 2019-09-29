@@ -1,37 +1,60 @@
-const svg = document.getElementById('svg')
-svg.viewBox.baseVal.x = 0
-svg.viewBox.baseVal.y = -100
-svg.viewBox.baseVal.width = 1300
-svg.viewBox.baseVal.height = 600
-const map = document.getElementById('map')
-const places = Array.prototype.slice.call(map.getElementsByTagName('g'))
+const map = loadMap()
 
-function getCenterPoint(element) {
-  const bbox = element.getBBox()
-  const ctm = element.getCTM()
-  const pt = svg.createSVGPoint()
-  pt.x = bbox.x + bbox.width / 2
-  pt.y = bbox.y + bbox.height / 2
-  return pt.matrixTransform(ctm)
+document.body.removeEventListener('click', drawEventListener)
+
+let grid = new PF.Grid(map)
+const finder = new PF.AStarFinder()
+
+let startPoint = (3, 3)
+let endPoint = (25, 25)
+
+function initPoints() {
 }
 
-function drawLabel(element) {
-  // let rect = element.getElementsByTagName('rect')[0]
-  let shape = document.createElementNS(element, 'text')
-  shape.setAttributeNS(null, 'x', '3')
-  shape.setAttributeNS(null, 'y', '5')
-  shape.textContent = element.id
-  element.appendChild(shape)
+function resetPoints() {
+  ;['start', 'end', 'path'].forEach(className => {
+    const points = Array.prototype.slice.call(document.getElementsByClassName(className))
+    points.forEach(point => point.className = 'cell')
+  })
 }
 
-const mapData = places.map((element) => {
-  const center = getCenterPoint(element)
-  console.log(center)
-  drawLabel(element)
-  return {
-    center,
-    element,
+function getRoute() {
+  const gridBackup = grid.clone()
+  const path = finder.findPath(startPoint[0], startPoint[1], endPoint[0], endPoint[1], grid);
+  grid = gridBackup
+  return path
+}
+
+function setPathState(point) {
+  const elementID = point[1] * 60 + point[0]
+  const tile = document.getElementById(elementID)
+  tile.className += ' path'
+}
+
+let isStartPoint = true
+document.body.addEventListener('click', function (event) {
+  const element = event.target
+  if (element.className.includes('cell')) {
+    const isValid = ['selected', 'start', 'end'].every(className => !element.className.includes(className))
+    if (!isValid)
+      return
+
+    const elementID = Number(element.id)
+    const elementPoint = [elementID % 60, Math.floor(elementID / 60)]
+    if (isStartPoint) {
+      resetPoints()
+      startPoint = elementPoint
+      element.className += ' start'
+    } else {
+      endPoint = elementPoint
+      element.className += ' end'
+    }
+    isStartPoint = !isStartPoint
+  } else if (element.id === 'search-route') {
+    const path = getRoute()
+    path.forEach((point, idx) => {
+      if ([0, path.length - 1].includes(idx)) return
+      setPathState(point)
+    })
   }
 })
-
-document.getElementById('svg-wrap').innerHTML += ''

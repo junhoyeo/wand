@@ -6,7 +6,7 @@ for (let i = 0; i < 30; i++) {
 
   for (let j = 0; j < 60; j++) {
     let cell = document.createElement('button')
-    cell.id = i * 30 + j
+    cell.id = i * 60 + j
     cell.className = 'cell'
     if (i === 0 || i === 29 || j === 0 || j == 59)
       cell.className += ' selected'
@@ -19,8 +19,8 @@ for (let i = 0; i < 30; i++) {
 
 function exportMap() {
   const tiles = Array.prototype.slice.call(document.getElementsByClassName('cell'))
-  let map = [];
-  let row = [];
+  let map = []
+  let row = []
   tiles.forEach((tile, idx) => {
     const value = Number(tile.className.includes('selected'))
     row.push(value)
@@ -43,10 +43,11 @@ function loadMap() {
   tiles.forEach((tile, idx) => {
     setTileState(tile, map[Math.floor(idx / 60)][idx % 60])
   })
-  window.alert('이전에 저장한 지도를 불러왔습니다.')
+
+  return map
 }
 
-document.body.addEventListener('click', function (event) {
+function drawEventListener(event) {
   const element = event.target
   const classes = element.className.split(' ')
   const map = JSON.stringify(exportMap())
@@ -62,5 +63,8 @@ document.body.addEventListener('click', function (event) {
     window.alert('저장했습니다.')
   } else if (element.id === 'load') {
     loadMap()
+    window.alert('이전에 저장한 지도를 불러왔습니다.')
   }
-}, false)
+}
+
+document.body.addEventListener('click', drawEventListener, false)

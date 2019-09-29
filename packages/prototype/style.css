@@ -1,0 +1,44 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+button.start {
+  background-color: rgb(70, 156, 142);
+  border: 0.3px solid rgb(84, 190, 173);
+}
+
+button.end {
+  background-color: rgb(209, 99, 126);
+  border: 0.3px solid rgb(230, 111, 141);
+}
+
+button.path {
+  background-color: rgb(182, 233, 216);
+  border: 0.3px solid rgb(162, 209, 193);
+}
+
+#search-route {
+  cursor: pointer;
+  background-color: mediumturquoise;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 0.8rem 5rem;
+  border-radius: 25px;
+}
+
+#search-route:hover {
+  background-color: rgb(63, 189, 185);
+}
+
+#search-route:active {
+  background-color: rgb(89, 216, 212);
+}

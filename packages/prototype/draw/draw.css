@@ -32,6 +32,29 @@ button.selected {
   border: 0.3px solid rgb(77, 77, 77);
 }
 
+div.button-row {
+  margin-bottom: 1rem;
+}
+
+#load {
+  cursor: pointer;
+  background-color: gray;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 0.8rem 5rem;
+  margin-right: 0.3rem;
+  border-radius: 25px;
+}
+
+#load:hover {
+  background-color: rgb(151, 151, 151);
+}
+
+#load:active {
+  background-color: rgb(112, 112, 112);
+}
+
 #save {
   cursor: pointer;
   background-color: mediumturquoise;
@@ -39,7 +62,6 @@ button.selected {
   border: none;
   font-size: 1rem;
   padding: 0.8rem 5rem;
-  margin-bottom: 1rem;
   border-radius: 25px;
 }
 
