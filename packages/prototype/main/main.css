@@ -1,5 +1,10 @@
 body {
+  margin: 0;
   overflow-x: hidden;
+}
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .content {
@@ -9,6 +14,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 
 .title {
@@ -82,4 +88,33 @@ button.path {
 
 #search-route:active {
   background-color: rgb(89, 216, 212);
+}
+
+/* header bar */
+header {
+  width: 100%;
+  display: flex;
+  z-index: 1;
+  background: linear-gradient(to bottom, white 60%, #ffffff80 80%, transparent);
+  padding-bottom: 3rem;
+}
+
+header div.info {
+  width: inherit;
+  height: auto;
+  padding: 1.5rem 1.7rem;
+}
+
+header h1.title {
+  margin: 0;
+  margin-bottom: 0.3rem;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+header p.desc {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #525252;
 }
