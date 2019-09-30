@@ -58,3 +58,5 @@ document.body.addEventListener('click', function (event) {
     })
   }
 })
+
+new Draggabilly('#sketch');
