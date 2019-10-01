@@ -1,0 +1,79 @@
+/* 하단 대시보드 */
+
+div.card {
+  width: -webkit-fill-available;
+  padding: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 20px 12px rgba(21, 19, 19, .07);
+}
+
+div.card div.item {
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 0 0 20px 6px rgba(21, 19, 19, .07);
+}
+
+div.card div.item:first-child {
+  margin-bottom: 0.7rem;
+}
+
+div.card h1.title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+div.item {
+  height: 6.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 8px;
+}
+
+div.item div.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 1rem;
+}
+
+div.item img {
+  height: 100%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+div.info h2.title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+div.info figure.circle {
+  margin: 0;
+  display: inline-block;
+  background-color: #F56C6C;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  vertical-align: text-top;
+}
+
+div.info span.hours {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #A7A7A7;
+}
+
+div.info span.location {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #707070;
+}

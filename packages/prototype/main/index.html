@@ -7,20 +7,25 @@
   <title>Wand PoC</title>
   <link rel="stylesheet" type="text/css" href="./draw/draw.css"></link>
   <link rel="stylesheet" type="text/css" href="./main/main.css"></link>
+  <link rel="stylesheet" type="text/css" href="./main/styles/header.css"></link>
+  <link rel="stylesheet" type="text/css" href="./main/styles/dashboard.css"></link>
+  <link rel="stylesheet" type="text/css" href="./main/styles/search.css"></link>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap&subset=korean" rel="stylesheet">
 </head>
 <body>
   <div class="content">
     <header>
-      <div class="info">
-        <h1 class="title">대웅경제개발원 1F</h1>
+      <div class="wrap">
+        <div class="top">
+          <h1 class="title">대웅경제개발원 1F</h1>
+          <img
+            id="search-button"
+            src="../assets/icons/search.svg"
+            onclick="toggleSearchContainer()"
+          >
+        </div>
         <p class="desc">컨벤션대강당 로비 타일 교체 작업 중 출입을 제한합니다.</p>
       </div>
-      <img
-        id="search-button"
-        src="../assets/icons/search.svg"
-        onclick="toggleSearchContainer()"
-      >
     </header>
 
     <div

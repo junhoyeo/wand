@@ -1,0 +1,53 @@
+
+/* 상단 검색 바 */
+
+div#search-container {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  visibility: hidden;
+  width: -webkit-fill-available;
+  padding: 1.5rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 20px 12px rgba(21, 19, 19, .07);
+}
+
+div.search-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+div.search-card img {
+  height: 1.5rem;
+}
+
+div.search-card input {
+  width: 330px;
+  font-size: 1.2rem;
+  padding: 0.4rem 0.3rem;
+  border: none;
+  border-bottom: 3px solid #3fbdb9;
+}
+
+div.search-card input:focus,
+div.search-card input:active {
+  outline: none;
+}
+
+/* 상단 오버레이 */
+
+div#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  visibility: hidden;
+}
