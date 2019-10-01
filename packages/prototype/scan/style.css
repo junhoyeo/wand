@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #45ba9b;
+}
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+div.content {
+  padding: 2.8rem;
+}
+
+div.content h1.title {
+  color: white;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+div.content p.desc {
+  color: white;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+}
+
+/* QR 코드 찍는 카메라 */
+
+div.camera-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+video#camera {
+  width: 18rem;
+  height: 18rem;
+  object-fit: cover;
+  position: relative;
+}
