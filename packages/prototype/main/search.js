@@ -9,3 +9,13 @@ function toggleSearchContainer () {
   setSearchElementState('overlay')
   isSearchOpen = !isSearchOpen
 }
+
+Object.keys(searchQueries).forEach(key => {
+  const element = document.getElementById(`search-${key}`)
+  searchQueries[key].forEach(query => {
+    const tag = document.createElement('span')
+    tag.className = 'search-tag'
+    tag.innerText = query
+    element.appendChild(tag)
+  })
+})

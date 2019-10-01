@@ -66,12 +66,19 @@
         <img id="search-button" src="../assets/icons/search-gray.svg">
         <input placeholder="장소를 검색하세요." />
       </div>
+      <div class="search-recommends">
+        <h1>인기 검색어</h1>
+        <div id="search-trending" class="search-list"></div>
+        <h1>편의시설</h1>
+        <div id="search-facilities" class="search-list"></div>
+      </div>
     </div>
 
     <div id="overlay" onclick="toggleSearchContainer()"></div>
   </div>
   <script src="./lib/draggabilly.pkgd.min.js"></script>
   <script src="./lib/pathfinding-browser.min.js"></script>
+  <script src="./data.js"></script>
   <script src="./main/search.js"></script>
   <script src="./draw/draw.js"></script>
   <script src="./main/drag.js"></script>

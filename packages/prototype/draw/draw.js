@@ -2,10 +2,10 @@ const sketch = document.getElementById('sketch')
 const output = document.getElementById('output')
 
 for (let i = 0; i < 30; i++) {
-  let row = document.createElement('div')
+  const row = document.createElement('div')
 
   for (let j = 0; j < 60; j++) {
-    let cell = document.createElement('button')
+    const cell = document.createElement('button')
     cell.id = i * 60 + j
     cell.className = 'cell'
     if (i === 0 || i === 29 || j === 0 || j == 59)
