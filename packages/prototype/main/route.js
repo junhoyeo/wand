@@ -30,7 +30,7 @@ function setPathState(point) {
 
 let isStartPoint = true
 
-function mainEventListener (event) {
+function mainEventListener(event) {
   const element = event.target
   if (element.className.includes('cell')) {
     const isValid = ['selected', 'start', 'end'].every(className => !element.className.includes(className))

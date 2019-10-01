@@ -1,13 +1,16 @@
 let isSearchOpen = false
-function setSearchElementState (elementID) {
+function setSearchElementState(elementID) {
   const element = document.getElementById(elementID)
   element.style.visibility = isSearchOpen ? 'hidden' : 'unset'
 }
 
-function toggleSearchContainer () {
+function toggleSearchContainer() {
   setSearchElementState('search-container')
   setSearchElementState('overlay')
   isSearchOpen = !isSearchOpen
+  if (isSearchOpen) {
+    document.getElementById('search-input').focus()
+  }
 }
 
 Object.keys(searchQueries).forEach(key => {
