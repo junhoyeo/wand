@@ -96,9 +96,17 @@ header {
   top: 0;
   width: 100%;
   display: flex;
+  justify-content: space-between;
   z-index: 1;
   background: linear-gradient(to bottom, white 60%, #ffffff80 80%, transparent);
   padding-bottom: 3rem;
+}
+
+header img {
+  cursor: pointer;
+  height: 1.8rem;
+  padding-top: 2.1rem;
+  padding-right: 1.7rem;
 }
 
 header div.info {
