@@ -52,3 +52,43 @@ video#camera {
   object-fit: cover;
   position: relative;
 }
+
+/* 하단 버튼 */
+
+div.buttons {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+div.buttons button {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+
+div.buttons button:focus,
+div.buttons button:active {
+  outline: none;
+}
+
+div.buttons button:last-child {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+div.buttons span {
+  color: white;
+  font-size: 1.4rem;
+}
+
+div.buttons img {
+  height: 1.8rem;
+  width: 1.8rem;
+  margin-left: 0.5rem;
+}

@@ -5,3 +5,7 @@ navigator.mediaDevices.getUserMedia({
 }).then(stream => {
   camera.srcObject = stream
 })
+
+function onClickNext() {
+  location.href = "/main"
+}
