@@ -27,16 +27,28 @@ div.content p.desc {
 
 /* QR 코드 찍는 카메라 */
 
-div.camera-wrap {
+div.camera-container {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 1.5rem;
 }
 
+div.camera-wrap {
+  margin-top: 2rem;
+  position: relative;
+}
+
+div.camera-wrap img,
 video#camera {
-  width: 18rem;
-  height: 18rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15rem;
+  height: 15rem;
+}
+
+video#camera {
   object-fit: cover;
   position: relative;
 }
