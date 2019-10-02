@@ -32,8 +32,7 @@ function exportMap() {
   return map
 }
 
-(function loadMap() {
-  console.log(true)
+(loadMap = function () {
 
   function setTileState(tile, state) {
     tile.className = `cell${ state ? ' selected' : '' }`
@@ -78,7 +77,3 @@ function drawEventListener(event) {
 }
 
 document.body.addEventListener('click', drawEventListener, false)
-
-draggie.on('dragEnd', function() {
-  lastDrag = true
-})
