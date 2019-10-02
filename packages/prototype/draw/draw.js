@@ -38,7 +38,12 @@ function loadMap() {
     tile.className = `cell${ state ? ' selected' : '' }`
   }
 
-  const map = JSON.parse(localStorage.getItem('map'))
+  let map = {}
+  try {
+    map = JSON.parse(localStorage.getItem('map'))
+  } catch (_) {
+    map = defaultMap
+  }
   const tiles = Array.prototype.slice.call(document.getElementsByClassName('cell'))
   tiles.forEach((tile, idx) => {
     setTileState(tile, map[Math.floor(idx / 60)][idx % 60])

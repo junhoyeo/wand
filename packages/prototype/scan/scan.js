@@ -1,4 +1,4 @@
-const camera = document.getElementById('camera');
+const camera = document.getElementById('camera')
 
 navigator.mediaDevices.getUserMedia({
   video: true

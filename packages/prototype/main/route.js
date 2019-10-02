@@ -17,7 +17,7 @@ function resetPoints() {
 
 function getRoute() {
   const gridBackup = grid.clone()
-  const path = finder.findPath(startPoint[0], startPoint[1], endPoint[0], endPoint[1], grid);
+  const path = finder.findPath(startPoint[0], startPoint[1], endPoint[0], endPoint[1], grid)
   grid = gridBackup
   return path
 }
