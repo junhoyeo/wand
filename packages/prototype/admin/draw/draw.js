@@ -32,7 +32,8 @@ function exportMap() {
   return map
 }
 
-function loadMap() {
+(function loadMap() {
+  console.log(true)
 
   function setTileState(tile, state) {
     tile.className = `cell${ state ? ' selected' : '' }`
@@ -50,7 +51,7 @@ function loadMap() {
   })
 
   return map
-}
+})();
 
 let lastDrag = false
 
@@ -73,10 +74,6 @@ function drawEventListener(event) {
   if (element.id === 'save') {
     localStorage.setItem('map', map)
     window.alert('저장했습니다.')
-  } else if (element.id === 'load') {
-    loadMap()
-    window.alert('이전에 저장한 지도를 불러왔습니다.')
-    // 또는 기본 지도
   }
 }
 
