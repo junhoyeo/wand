@@ -27,14 +27,23 @@ body {
   height: 80%;
 }
 
-#sketch {
+#sketch-wrap {
   min-width: 900px;
+  min-height: 450px;
   margin: 5%;
-  color: white;
   border-radius: 0.75em;
   touch-action: none;
   user-select: none;
   transform: translate(0px, 0px);
+  position: relative;
+}
+
+#sketch {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
 }
 
 #sketch div {
@@ -89,3 +98,23 @@ button.path {
 #search-route:active {
   background-color: rgb(89, 216, 212);
 } */
+
+/* 지도 오버레이 */
+
+div#sketch-overlay {
+  margin-top: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* background-color: #d1637f73; */
+}
+
+img#user-location {
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  height: 5rem;
+  width: 5rem;
+}

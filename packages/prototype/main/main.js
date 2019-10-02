@@ -36,4 +36,10 @@ function renderPlaceCard(place) {
   renderPlaceCard(places[1])
 })();
 
+const userLocation = [gup['x'] || 3, gup['y'] || 3]
+console.log(userLocation)
+const userPin = document.getElementById('user-location')
+userPin.style.top = `${userLocation[0] * 15}px`
+userPin.style.left = `${userLocation[1] * 15}px`
+
 document.body.removeEventListener('click', drawEventListener)

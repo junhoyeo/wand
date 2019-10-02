@@ -1,1 +1,1 @@
-const draggie = new Draggabilly('#sketch')
+const draggie = new Draggabilly('#sketch-wrap')

@@ -32,7 +32,12 @@
       class="container"
       style="position: relative; top: 8rem; left: 1.2rem;"
     >
-      <div id="sketch"></div>
+      <div id="sketch-wrap">
+        <div id="sketch"></div>
+        <div id="sketch-overlay">
+          <img id="user-location" src="../assets/user.png">
+        </div>
+      </div>
     </div>
 
     <div class="card">
@@ -57,6 +62,7 @@
   </div>
   <script src="./lib/draggabilly.pkgd.min.js"></script>
   <script src="./lib/pathfinding-browser.min.js"></script>
+  <script src="./utils.js"></script>
   <script src="./data.js"></script>
   <script src="./main/search.js"></script>
   <script src="./draw/draw.js"></script>
