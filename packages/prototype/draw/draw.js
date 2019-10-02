@@ -40,7 +40,7 @@ function loadMap() {
 
   let map = {}
   try {
-    map = JSON.parse(localStorage.getItem('map'))
+    map = JSON.parse(localStorage.getItem('map')) || defaultMap
   } catch (_) {
     map = defaultMap
   }
