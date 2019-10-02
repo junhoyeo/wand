@@ -115,6 +115,7 @@ img#user-location {
   position: absolute;
   top: 45px;
   left: 45px;
-  height: 5rem;
-  width: 5rem;
+  height: 3.2rem;
+  width: 3.2rem;
+  transition: 300ms linear all;
 }
