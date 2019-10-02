@@ -7,5 +7,5 @@ navigator.mediaDevices.getUserMedia({
 })
 
 function onClickNext() {
-  location.href = "./main?x=5&y=3"
+  location.href = `${rootURL}/main?x=5&y=3`
 }
