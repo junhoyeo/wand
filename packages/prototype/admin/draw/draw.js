@@ -73,6 +73,8 @@ function drawEventListener(event) {
   if (element.id === 'save') {
     localStorage.setItem('map', map)
     window.alert('저장했습니다.')
+  } else if (element.id === 'back') {
+    location.href = '/admin'
   }
 }
 

@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -40,36 +44,43 @@ button.selected {
 }
 
 div.button-row {
-  margin-bottom: 1rem;
+  position: absolute;
+  padding: 1rem 1.2rem;
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  background: linear-gradient(to top, white 60%, #ffffff80 80%, transparent);
 }
 
-#load {
+div.button-row button {
   cursor: pointer;
   background-color: gray;
   color: white;
   border: none;
   font-size: 1rem;
-  padding: 0.8rem 5rem;
-  margin-right: 0.3rem;
-  border-radius: 25px;
+  padding: 0.8rem 3.5rem;
+  border-radius: 8px;
 }
 
-#load:hover {
+div.button-row button:first-child {
+  margin-right: 1rem;
+}
+
+#back {
+  background-color: gray;
+}
+
+#back:hover {
   background-color: rgb(151, 151, 151);
 }
 
-#load:active {
+#back:active {
   background-color: rgb(112, 112, 112);
 }
 
 #save {
-  cursor: pointer;
   background-color: mediumturquoise;
-  color: white;
-  border: none;
-  font-size: 1rem;
-  padding: 0.8rem 5rem;
-  border-radius: 25px;
 }
 
 #save:hover {

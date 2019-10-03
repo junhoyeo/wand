@@ -6,16 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Wand PoC</title>
   <link rel="stylesheet" type="text/css" href="./draw.css"></link>
+  <link rel="stylesheet" type="text/css" href="../../main/styles/header.css"></link>
 </head>
 <body>
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <h1 id="header-title" class="title">지도 편집</h1>
+      </div>
+      <p id="header-desc" class="desc">건물 지도를 편집합니다.</p>
+    </div>
+  </header>
+
   <div id="sketch-wrap">
     <div id="sketch"></div>
   </div>
+
   <div class="button-row">
-    <button id="load">불러오기</button>
+    <button id="back">뒤로가기</button>
     <button id="save">저장하기</button>
   </div>
-  <code id="output"></code>
+
   <script src="../../lib/draggabilly.pkgd.min.js"></script>
   <script src="../../data.js"></script>
   <script src="../../main/drag.js"></script>
