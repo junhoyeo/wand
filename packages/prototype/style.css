@@ -10,6 +10,11 @@ body {
   background-color: rgb(240, 240, 240);
 }
 
+button:focus,
+button:active {
+  outline: none;
+}
+
 .container {
   height: 100%;
   width: 100%;
@@ -30,4 +35,44 @@ iframe {
   iframe {
     width: 100%;
   }
+}
+
+/* iframe 옆에 있는 버튼 리모컨 */
+
+div.buttons {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media (max-width: 650px) {
+  div.buttons {
+    display: none;
+  }
+}
+
+div.buttons button {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+div.buttons button#admin {
+  background-color: #c5c5c5;
+}
+
+div.buttons button#admin:hover {
+  background-color: #b6b6b6;
+}
+
+div.buttons img {
+  height: 2.2rem;
+  width: 2.2rem;
 }
