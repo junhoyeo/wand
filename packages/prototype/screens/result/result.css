@@ -7,7 +7,7 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-/* 검색창 */
+/* 헤더 (검색창) */
 
 header {
   display: flex;
@@ -31,6 +31,12 @@ header input {
   border: none;
   border-color: transparent;
   transition: border-color 0.5s ease;
+}
+
+@media (max-width: 438px) {
+  header input {
+    width: 264px;
+  }
 }
 
 header input:focus,

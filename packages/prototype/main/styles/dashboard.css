@@ -77,3 +77,27 @@ div.info span.location {
   font-weight: 700;
   color: #707070;
 }
+
+@media (max-width: 438px) {
+  div.info span.meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  div.info h2.title {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  div.info figure.circle {
+    margin-right: 3px;
+  }
+
+  div.info span.hours,
+  div.info span.location {
+    font-size: 0.8rem;
+  }
+}

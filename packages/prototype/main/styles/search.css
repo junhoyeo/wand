@@ -32,6 +32,12 @@ div.search-card input {
   border-bottom: 3px solid #3fbdb9;
 }
 
+@media (max-width: 438px) {
+  div.search-card input {
+    width: 264px;
+  }
+}
+
 div.search-card input:focus,
 div.search-card input:active {
   outline: none;
