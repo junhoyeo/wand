@@ -13,12 +13,38 @@ function toggleSearchContainer() {
   }
 }
 
-Object.keys(searchQueries).forEach(key => {
-  const element = document.getElementById(`search-${key}`)
-  searchQueries[key].forEach(query => {
-    const tag = document.createElement('span')
-    tag.className = 'search-tag'
-    tag.innerText = query
-    element.appendChild(tag)
+function onClickSearchCard(event) {
+  // ignore closing
+  event.stopPropagation()
+}
+
+function onClickSearchTag(event) {
+  event.stopPropagation()
+  const query = event.target.innerText
+
+  setTimeout(() => {
+    location.href = `/screens/result?query=${query}`
+  }, 250);
+}
+
+function initSearchQueries() {
+  Object.keys(searchQueries).forEach(key => {
+    const element = document.getElementById(`search-${key}`)
+    searchQueries[key].forEach(query => {
+      const tag = document.createElement('span')
+      tag.className = 'search-tag'
+      tag.innerText = query
+      tag.onclick = onClickSearchTag
+      element.appendChild(tag)
+    })
   })
-})
+}
+
+function onKeydownSearch(event) {
+  if (event.keyCode !== 13) return
+
+  // if enter pressed
+  const query = event.target.value
+  if (!query) return
+  location.href = `/screens/result?query=${query}`
+}

@@ -58,6 +58,7 @@ div.search-list {
 }
 
 span.search-tag {
+  cursor: pointer;
   display: inline-block;
   background-color: #3fbdb9;
   padding: 0.5rem 0.8rem;
@@ -66,6 +67,12 @@ span.search-tag {
   color: black;
   font-weight: 700;
   border-radius: 3px;
+  transition: color 0.2s ease-in-out;
+  -webkit-user-drag: none;
+}
+
+span.search-tag:hover {
+  color: white;
 }
 
 /* 상단 오버레이 */

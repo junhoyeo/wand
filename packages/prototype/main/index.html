@@ -45,10 +45,14 @@
       <div id="cards-list" class="list"></div>
     </div>
 
-    <div id="search-container">
-      <div class="search-card">
+    <div id="search-container" onclick="toggleSearchContainer()">
+      <div class="search-card" onclick="onClickSearchCard(event)">
         <img id="search-button" src="../assets/icons/search-gray.svg">
-        <input id="search-input" placeholder="장소를 검색하세요." />
+        <input
+          id="search-input"
+          placeholder="장소를 검색하세요."
+          onkeydown="onKeydownSearch(event)"
+        />
       </div>
       <div class="search-recommends">
         <h1>인기 검색어</h1>
