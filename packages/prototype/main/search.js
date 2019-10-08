@@ -46,5 +46,5 @@ function onKeydownSearch(event) {
   // if enter pressed
   const query = event.target.value
   if (!query) return
-  location.href = `/screens/result?query=${query}`
+  location.href = `${rootURL}/screens/result?query=${query}`
 }
