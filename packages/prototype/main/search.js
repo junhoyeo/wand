@@ -24,7 +24,7 @@ function onClickSearchTag(event) {
 
   setTimeout(() => {
     location.href = `/screens/result?query=${query}`
-  }, 250);
+  }, 250)
 }
 
 function initSearchQueries() {

@@ -1,5 +1,5 @@
 function onClickAdmin() {
   setTimeout(() => {
     location.href = `${rootURL}/admin`
-  }, 100);
+  }, 100)
 }

@@ -135,6 +135,6 @@ div.card a.more {
   font-weight: bold;
 }
 
-div.card-end {
+div#card-end {
   min-width: 1rem;
 }

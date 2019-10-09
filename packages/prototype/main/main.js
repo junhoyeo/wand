@@ -36,6 +36,6 @@ function renderPlaceCard(place) {
   renderPlaceCard(places[1])
 })();
 
-initSearchQueries();
+initSearchQueries()
 
 document.body.removeEventListener('click', drawEventListener)
