@@ -51,3 +51,31 @@ function clickEventListener(event) {
 }
 
 document.body.addEventListener('click', clickEventListener)
+
+function onClickDiscard() {
+  moveQRcontainer(0, 0)
+  initCells()
+  setTimeout(() => {
+    isQRcontainerInit = false
+    QRcontainer.style.display = 'none'
+  }, 300)
+}
+
+function onClickDownload() {
+  if (!isQRcontainerInit) {
+    window.alert('생성된 QR 코드가 없습니다.')
+    return
+  }
+
+  const qrcodeImage = document.querySelector('#qrcode img')
+  const anchor = document.createElement('a')
+  anchor.style.display = 'none'
+  anchor.href = qrcodeImage.src
+  anchor.download = 'qrcode.png'
+  document.body.appendChild(anchor)
+  anchor.click()
+
+  setTimeout(() => {
+    document.body.removeChild(a)
+  }, 100)
+}
