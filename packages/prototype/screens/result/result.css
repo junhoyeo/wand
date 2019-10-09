@@ -138,3 +138,107 @@ div.card a.more {
 div#card-end {
   min-width: 1rem;
 }
+
+/* 스켈레톤 카드 */
+
+div.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 19rem;
+  height: 374.375px;
+  width: 19rem;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 0 0.25rem;
+}
+
+div.skeleton-card:first-child {
+  margin-left: 1rem;
+}
+
+div.skeleton-image {
+  width: 100%;
+  height: 12rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #e6e6e6;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+div.skeleton-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.2rem;
+  padding-top: 1.2rem;
+  padding-bottom: 0;
+}
+
+div.skeleton-title {
+  margin: 0;
+  line-height: 1.2;
+  height: 1.2rem;
+  margin-bottom: 0.5rem;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  background: #e6e6e6;
+}
+
+div.skeleton-more {
+  margin: 0.3rem 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 25px;
+  width: 5rem;
+  height: 0.8rem;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  background: #e6e6e6;
+}
+
+div.skeleton-line {
+  margin: 0.5rem 0;
+  height: 0.8rem;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  background: #e6e6e6;
+}
+
+div.skeleton-line:first-child {
+  width: 80%;
+}
+
+div.skeleton-line:nth-child(2) {
+  width: 90%;
+}
+
+div.skeleton-line:last-child {
+  width: 70%;
+}
+
+div.skeleton-image::after,
+div.skeleton-title::after,
+div.skeleton-line::after,
+div.skeleton-more::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #e6e6e6, #dbdbdb, #e6e6e6);
+  animation: progress 1s ease-in-out infinite;
+}
+
+@keyframes progress {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
