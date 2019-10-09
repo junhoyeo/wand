@@ -13,3 +13,49 @@ body {
 header {
   padding-bottom: 0;
 }
+
+/* qr코드 생성을 위해 선택한 타일 */
+
+button.cell {
+  transition: all 0.2ms ease;
+}
+
+button.cell.qrcode {
+  background-color: #3fbdb9;
+  border-color: #61b8a9;
+  border-radius: 25px;
+}
+
+/* qr코드 생성 창 */
+
+div#qrcode-container {
+  position: relative;
+  height: 10rem;
+  width: 10rem;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border: 10px solid #3fbdb9;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px 6px rgba(21, 19, 19, .07);
+  display: none;
+  transition: 300ms linear all;
+}
+
+div#qrcode-container div#qrcode {
+  height: 8rem;
+  width: 8rem;
+  border: 0;
+  background-color: #e6e6e6;
+}
+
+div#qrcode canvas {
+  display: none;
+}
+
+div#qrcode img {
+  height: inherit;
+  width: inherit;
+}

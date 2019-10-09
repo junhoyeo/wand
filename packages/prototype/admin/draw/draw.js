@@ -66,7 +66,7 @@ function drawEventListener(event) {
       element.className = 'cell'
     else
       element.className += ' selected'
-      latestElement = element
+    latestElement = element
   }
   if (element.id === 'save') {
     localStorage.setItem('map', map)
