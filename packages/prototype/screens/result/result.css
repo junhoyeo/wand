@@ -1,3 +1,7 @@
+html {
+  background-color: white;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -43,4 +47,94 @@ header input:focus,
 header input:active {
   outline: none;
   border-bottom: 3px solid #3fbdb9;
+}
+
+/* 섹션 */
+section {
+  margin: 1rem; 
+}
+
+section#events {
+  margin: 1rem 0;
+}
+
+section h1.section-title {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+section#events h1.section-title {
+  margin-left: 1rem;
+}
+
+/* 슬라이더 및 카드 */
+
+div.card-slider {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+div.card-slider::-webkit-scrollbar {
+  display: none;
+}
+
+div.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 19rem;
+  width: 19rem;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 0 0.25rem;
+}
+
+div.card:first-child {
+  margin-left: 1rem;
+}
+
+div.card img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  object-position: top;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+div.card div.info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.2rem;
+  padding-top: 1.2rem;
+  padding-bottom: 0;
+}
+
+div.info h1.title {
+  margin: 0;
+  line-height: 1.2;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+div.info p.desc {
+  margin: 0;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: #838383;
+}
+
+div.card a.more {
+  margin: 0 1.2rem;
+  margin-top: auto;
+  margin-bottom: 0.9rem;
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+div.card-end {
+  min-width: 1rem;
 }
