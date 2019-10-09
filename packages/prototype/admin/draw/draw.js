@@ -1,5 +1,4 @@
 const sketch = document.getElementById('sketch')
-const output = document.getElementById('output')
 
 for (let i = 0; i < 30; i++) {
   const row = document.createElement('div')
@@ -68,7 +67,6 @@ function drawEventListener(event) {
     else
       element.className += ' selected'
       latestElement = element
-    output.innerHTML = map
   }
   if (element.id === 'save') {
     localStorage.setItem('map', map)

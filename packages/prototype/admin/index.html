@@ -11,6 +11,19 @@
 <body>
   <div class="container">
     <iframe src="./draw"></iframe>
+    <div class="buttons">
+      <button id="edit-map" onclick="onClickButton('admin')">
+        <img src="../assets/icons/pencil-alt-solid.svg">
+      </button>
+      <button id="qrcode" onclick="onClickButton('admin/qrcode')">
+        <img src="../assets/icons/qrcode-solid.svg">
+      </button>
+      <button id="admin" onclick="onClickHome()">
+        <img src="../assets/icons/home-solid.svg">
+      </button>
+    </div>
   </div>
+  <script src="../utils.js"></script>
+  <script src="./admin.js"></script>
 </body>
 </html>

@@ -55,6 +55,7 @@ div.buttons {
 
 div.buttons button {
   cursor: pointer;
+  margin-top: 0.5rem;
   padding: 1rem;
   border-radius: 50%;
   display: flex;
