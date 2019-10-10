@@ -1,0 +1,144 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #45BA9B;
+}
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1, p {
+  margin: 0;
+}
+
+button {
+  width: fit-content;
+  padding: 0;
+  color: white;
+  background-color: transparent;
+  border: 0;
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 헤더 (뒤로가기 버튼과 같은 row) */
+
+header {
+  padding: 1.2rem 1.5rem;
+}
+
+button#back {
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* 건물 카드 */
+
+div.card {
+  position: relative;
+  height: inherit;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -5px 12px 0 rgba(0, 0, 0, 0.16);
+}
+
+/* 카드 윗부분 (이미지 쪽) */
+
+div.card-image {
+  position: relative;
+  height: 48%;
+  background-image: url('../../../assets/buildings/dmd.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+div.card-image span.type {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  padding: 0.3rem 1rem;
+  background-color: #45BA9B;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* 카드 내용 */
+
+div.card-content {
+  padding: 1.1rem 1.5rem;
+}
+
+div.card-content h1.name {
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+div.card-content span.address {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #525252;
+}
+
+div.card-content p.desc {
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+  color: #525252;
+}
+
+div.card-content div.info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+div.card-content div.info-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.info-row span.field {
+  color: black;
+  font-weight: bold;
+}
+
+div.info-row span.value {
+  color: #525252;
+}
+
+/* 선택 버튼 */
+
+button#confirm {
+  position: absolute;
+  bottom: 1.1rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #45BA9B;
+  padding: 0.5rem 3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+}

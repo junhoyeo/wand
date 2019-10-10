@@ -9,7 +9,7 @@ scanner.addListener('scan', function (content) {
   try {
     const data = JSON.parse(content)
     if (!isValidData(data)) return
-    location.href = `${rootURL}/main?x=${data.x}&y=${data.y}`
+    location.href = `${rootURL}/intro/screens/info?x=${data.x}&y=${data.y}`
   } catch (_) {
     return
   }
@@ -28,5 +28,5 @@ Instascan.Camera.getCameras().then(function (cameras) {
 })
 
 function onClickNext() {
-  location.href = `${rootURL}/main?x=5&y=3`
+  location.href = `${rootURL}/intro/screens/info`
 }

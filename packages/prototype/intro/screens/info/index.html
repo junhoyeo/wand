@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wand PoC</title>
+  <link rel="stylesheet" type="text/css" href="./info.css"></link>
+</head>
+<body>
+  <div class="container">
+    <div id="header-wrap">
+      <header>
+        <button id="back" onclick="window.history.back()">뒤로가기</button>
+      </header>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <span class="type">교육 센터</span>
+      </div>
+
+      <div class="card-content">
+        <div class="header">
+          <h1 class="name">대웅경영개발원 연수원</h1>
+          <span class="address">서울특별시 강남구 신사동 압구정로 165</span>
+        </div>
+        <p class="desc">패션의 중심지인 압구정동에 위치한 현대백화점 본점은 국내 최고의 명품 브랜드로 구성된 쇼핑 공간입니다.</p>
+        <div class="info">
+          <div class="info-row">
+            <span class="field">이용시설</span>
+            <span class="value">쇼핑몰, 수선실, 하늘정원, 노천카페, 문화센터</span>
+          </div>
+          <div class="info-row">
+            <span class="field">영업시간</span>
+            <span class="value">오전 10:30 ~ 오후 8:30</span>
+          </div>
+        </div>
+      </div>
+
+      <button
+        id="confirm"
+        onclick="onClickConfirm()"
+      >
+        선택하기
+      </button>
+    </div>
+  </div>
+  <script src="../../../utils.js"></script>
+  <script src="./info.js"></script>
+</body>
+</html>
