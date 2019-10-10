@@ -10,9 +10,14 @@ const cards = {
   list: document.getElementById('cards-list')
 }
 
+function onClickPlaceCard(place) {
+  location.href = `${rootURL}/screens/info?card=${place.name}`
+}
+
 function renderPlaceCard(place) {
   const card = document.createElement('div')
   card.className = 'item'
+  card.onclick = onClickPlaceCard
   card.innerHTML = `
     <img src="${place.image}">
     <div class="info">

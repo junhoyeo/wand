@@ -1,0 +1,171 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: white;
+}
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1, p {
+  margin: 0;
+}
+
+button {
+  width: fit-content;
+  padding: 0;
+  color: white;
+  background-color: transparent;
+  border: 0;
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* 헤더 */
+
+div#header-wrap {
+  height: 35%;
+  background-image: url('../../assets/places/cafe.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+header {
+  background-color: hsla(0, 0%, 0%, 0.5);
+  height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  padding: 1.2rem 1.5rem;
+}
+
+button#back {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+div.header-content h1.title {
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+div.header-content p.desc {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* 메인 컨텐츠 */
+
+div.main {
+  padding: 1.1rem 1.5rem;
+}
+
+div.main h1.name {
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+div.main p.desc {
+  color: #525252;
+  font-weight: bold;
+}
+
+/* 상품 목록 및 카드 */
+
+div.cards {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+div.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 20px 12px rgba(21, 19, 19, .07);
+  margin-bottom: 0.5rem;
+}
+
+div.card img {
+  height: 6rem;
+  width: 7rem;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: #F6F6F6;
+}
+
+div.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 0.8rem;
+}
+
+div.card-info span.name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+div.card-info span.type,
+div.card-info span.price {
+  font-size: 1rem;
+  color: #707070;
+  font-weight: bold;
+}
+
+div.card-info span.type {
+  font-size: 0.8rem;
+}
+
+/* 하단 버튼 */
+
+div.button-row {
+  position: absolute;
+  padding-bottom: 1rem;
+  display: flex;
+  bottom: 0;
+  padding: 1.5rem 1.2rem;
+  padding-top: 5rem;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8) 20%, white 50%);
+}
+
+div.button-row button {
+  cursor: pointer;
+  background-color: gray;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.8rem 3.8rem;
+  border-radius: 8px;
+}
+
+div.button-row button:first-child {
+  margin-right: 1rem;
+}
+
+button#path {
+  background-color: #45BA9B;
+}
