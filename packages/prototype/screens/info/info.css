@@ -57,6 +57,7 @@ header {
 }
 
 button#back {
+  cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
 }
@@ -96,6 +97,7 @@ div.cards {
 }
 
 div.card {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -141,6 +143,7 @@ div.card-info span.type {
 /* 하단 버튼 */
 
 div.button-row {
+  width: -webkit-fill-available;
   position: absolute;
   padding-bottom: 1rem;
   display: flex;
