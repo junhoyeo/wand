@@ -11,7 +11,7 @@ const cards = {
 }
 
 function onClickPlaceCard(place) {
-  location.href = `${rootURL}/screens/info?card=${place.name}`
+  location.href = `${rootURL}/main/screens/info?card=${place.name}`
 }
 
 function renderPlaceCard(place) {

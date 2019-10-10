@@ -23,7 +23,7 @@ function onClickSearchTag(event) {
   const query = event.target.innerText
 
   setTimeout(() => {
-    location.href = `${rootURL}/screens/result?query=${query}`
+    location.href = `${rootURL}/main/screens/result?query=${query}`
   }, 250)
 }
 
@@ -46,5 +46,5 @@ function onKeydownSearch(event) {
   // if enter pressed
   const query = event.target.value
   if (!query) return
-  location.href = `${rootURL}/screens/result?query=${query}`
+  location.href = `${rootURL}/main/screens/result?query=${query}`
 }
