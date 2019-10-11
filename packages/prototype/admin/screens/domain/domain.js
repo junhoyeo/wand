@@ -7,19 +7,16 @@ let currentDomain = {
 }
 let isStartPoint = true
 
-function resetPoints() {
-  ;['start', 'end', 'path'].forEach(className => {
-    const points = Array.prototype.slice.call(document.getElementsByClassName(className))
-    points.forEach(point => point.className = 'cell')
-  })
+function normalizeCurrentDomain() {
+  // 올바른 형태의 startPoint, endPoint로 변경
 }
 
-function setDomainState(x, y) {
+function setDomainState(x, y, idx) {
   const elementID = y * 60 + x
   const tile = document.getElementById(elementID)
-  if (!tile.className.includes('selected')) {
+  if (['selected', 'domain'].some((key) => !tile.className.includes(key))) {
     tile.className += ' domain'
-    tile.dataset.domain = domains.length
+    tile.dataset.domain = idx
   }
 }
 
@@ -30,27 +27,19 @@ function initCurrentDomain() {
   }
 }
 
-function normalizeCurrentDomain() {
-  // 올바른 형태의 startPoint, endPoint로 변경
-  currentDomain.id = domains.length
-}
-
-function registerCurrentDomain() {
-  // 현재 영역 등록 및 초기화
-  domains.push(currentDomain)
-  initCurrentDomain()
-}
-
-function drawLabel(domain) {
-  const { id, startPoint, endPoint } = domain
+function drawLabel(domain, idx) {
+  const { startPoint, endPoint } = domain
   const centerX = startPoint[0] + Math.round((endPoint[0] - startPoint[0]) / 2)
   const centerY = startPoint[1] + Math.round((endPoint[1] - startPoint[1]) / 2)
   
   const label = document.createElement('div')
-  label.id = `domain-label-${id}`
+  label.id = `domain-label-${idx}`
   label.className = 'label'
   label.innerHTML = `
-    <button class="delete" onclick="onClickDeleteDomain(${id})">
+    <button
+      class="delete"
+      onclick="onClickDeleteDomain(${idx})"
+    >
       <img src="../../../assets/icons/times-solid.svg">
     </button>
     <span class="name">
@@ -65,37 +54,47 @@ function drawLabel(domain) {
   sketchWrap.insertBefore(label, sketch)    
 }
 
-function drawDomain() {
+function registerCurrentDomain() {
+  // 현재 영역 등록 및 초기화
+  domains.push(currentDomain)
+  initCurrentDomain()
+}
+
+function drawDomain(idx) {
   normalizeCurrentDomain()
   const { startPoint, endPoint } = currentDomain
   for (let i = startPoint[1]; i <= endPoint[1]; i++) {
     for (let j = startPoint[0]; j <= endPoint[0]; j++) {
-      setDomainState(j, i)
+      setDomainState(j, i, idx)
     }
   }
-  drawLabel(currentDomain)
+  drawLabel(currentDomain, idx)
   registerCurrentDomain()
 }
 
 function clickEventListener(event) {
   const element = event.target
   const classes = element.className.split(' ')
-  if (lastDrag) {
+  if (element.id === 'discard') {
+    loadDomains()
+    return
+  }
+  else if (lastDrag) {
     lastDrag = false
     return
   }
-  if (classes.includes('cell') && !classes.includes('selected')) {
+  if (classes.includes('cell') && 
+    ['selected', 'start', 'end'].some((key) => !classes.includes(key))) {
     const elementID = Number(element.id)
     const elementPoint = [elementID % 60, Math.floor(elementID / 60)]
 
     if (isStartPoint) {
-      // resetPoints()
       currentDomain.startPoint = elementPoint
       element.className += ' start'
     } else {
       currentDomain.endPoint = elementPoint
       element.className += ' end'
-      drawDomain()
+      drawDomain(domains.length)
     }
     isStartPoint = !isStartPoint
   }
@@ -103,10 +102,14 @@ function clickEventListener(event) {
 
 document.body.addEventListener('click', clickEventListener)
 
-function onClickDeleteDomain(domainID) {
-  domains.splice(domainID, 1)
+function onClickDeleteDomain(domainID, splice = true) {
+  if (splice)
+    domains.splice(domainID, 1)
   const label = document.getElementById(`domain-label-${domainID}`)
-  label.parentNode.removeChild(label)
+  console.log(`domain-label-${domainID}`)
+  try {
+    label.parentNode.removeChild(label)
+  } catch (_) {}
   const tiles = Array.prototype.slice.call(document.querySelectorAll(`[data-domain~="${domainID}"]`))
   tiles.forEach((tile) => {
     ;['start', 'end', 'domain'].forEach((key) => {
@@ -116,9 +119,30 @@ function onClickDeleteDomain(domainID) {
   })
 }
 
-function renderDomains() {
-  domains.forEach((domain) => {
+function renderDomains(temp) {
+  temp.forEach((domain, idx) => {
     currentDomain = domain
-    drawDomain()
+    drawDomain(idx)
   })
+}
+
+function loadDomains() {
+  domains.forEach((_, idx) => {
+    onClickDeleteDomain(idx, false)
+  })
+  
+  let temp = []
+  try {
+    temp = JSON.parse(localStorage.getItem('domains')) || []
+  } catch (_) {
+    temp = []
+  }
+  renderDomains(temp)
+}
+
+loadDomains()
+
+function saveDomains() {
+  localStorage.setItem('domains', JSON.stringify(domains))
+  window.alert('저장했습니다.')
 }
