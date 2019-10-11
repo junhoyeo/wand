@@ -8,3 +8,50 @@ button.end {
   background-color: #a1d6c4;
   border: 0.3px solid #a9ddcb;
 }
+
+/* 라벨 */
+div.label {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 25px;
+  border: 1px solid #dee2e6;
+  background-color: white;
+  box-shadow: 0 0 20px 6px rgba(21, 19, 19, .07);
+}
+
+div.label div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div.label div span {
+  font-size: 1.2rem;
+  padding: 0.3rem 0.8rem;
+}
+
+div.label div img {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin: 0 0.5rem;
+}
+
+div.label button.delete {
+  cursor: pointer;
+  position: absolute;
+  left: -1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+  border-radius: 25px;
+  border: 1px solid #c92a2a;
+  background-color: #fa5252;
+}
+
+div.label img {
+  height: 1.2rem;
+  width: 1.2rem;
+}
