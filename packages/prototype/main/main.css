@@ -60,7 +60,7 @@ button.cell.selected {
   border: 0.3px solid rgb(53, 53, 53);
 }
 
-button.start {
+/* button.start {
   background-color: #469c8e;
   border: 0.3px solid #469c8e;
 }
@@ -73,7 +73,7 @@ button.end {
 button.path {
   background-color: #b6e9d8;
   border: 0.3px solid #b6e9d8;
-}
+} */
 
 /* #search-route {
   cursor: pointer;

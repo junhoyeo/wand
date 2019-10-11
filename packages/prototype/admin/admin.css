@@ -5,11 +5,13 @@ iframe {
 /* iframe 옆에 있는 버튼 리모컨 */
 
 div.buttons button#edit-map,
+div.buttons button#edit-domain,
 div.buttons button#qrcode {
   background-color: #38384f;
 }
 
 div.buttons button#edit-map:hover,
+div.buttons button#edit-domain:hover,
 div.buttons button#qrcode:hover {
   background-color: #0c0c61;
 }
