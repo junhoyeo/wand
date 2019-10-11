@@ -1,7 +1,10 @@
 document.body.removeEventListener('click', drawEventListener)
 
-let startPoint = (3, 3)
-let endPoint = (3, 3)
+let domains = []
+let currentDomain = {
+  startPoint: [3, 3],
+  endPoint: [3, 3],
+}
 let isStartPoint = true
 
 function resetPoints() {
@@ -14,17 +17,37 @@ function resetPoints() {
 function setDomainState(x, y) {
   const elementID = y * 60 + x
   const tile = document.getElementById(elementID)
-  if (!tile.className.includes('selected'))
-    tile.className += ' domain'
+  // if (!tile.className.includes('selected'))
+  tile.className += ' domain'
+  tile.dataset.domain = domains.length
+}
+
+function initCurrentDomain() {
+  currentDomain = {
+    startPoint: [3, 3],
+    endPoint: [3, 3],
+  }
+}
+
+function normalizeCurrentDomain() {
+  // 올바른 형태의 startPoint, endPoint로 변경
+}
+
+function registerCurrentDomain() {
+  // 현재 영역 등록 및 초기화
+  domains.push(currentDomain)
+  initCurrentDomain()
 }
 
 function drawDomain() {
-  console.log(startPoint, endPoint)
+  normalizeCurrentDomain()
+  const { startPoint, endPoint } = currentDomain
   for (let i = startPoint[1]; i <= endPoint[1]; i++) {
     for (let j = startPoint[0]; j <= endPoint[0]; j++) {
       setDomainState(j, i)
     }
   }
+  registerCurrentDomain()
 }
 
 function clickEventListener(event) {
@@ -40,11 +63,11 @@ function clickEventListener(event) {
 
     if (isStartPoint) {
       // resetPoints()
-      startPoint = elementPoint
-      element.className += ' start domain'
+      currentDomain.startPoint = elementPoint
+      element.className += ' start'
     } else {
-      endPoint = elementPoint
-      element.className += ' end domain'
+      currentDomain.endPoint = elementPoint
+      element.className += ' end'
       drawDomain()
     }
     isStartPoint = !isStartPoint
