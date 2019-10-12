@@ -130,6 +130,7 @@ div.info-row span.value {
 /* 선택 버튼 */
 
 button#confirm {
+  cursor: pointer;
   position: absolute;
   bottom: 1.1rem;
   right: 1.5rem;
