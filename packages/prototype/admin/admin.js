@@ -7,7 +7,7 @@ function moveToRoute(route) {
 }
 
 function onClickHome() {
-  location.href = '/..'
+  location.href = '/'
 }
 
 function onClickButton(route) {
