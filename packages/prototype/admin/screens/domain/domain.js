@@ -60,12 +60,12 @@ function registerCurrentDomain() {
   initCurrentDomain()
 }
 
-function arrays_equal(a,b) { return !!a && !!b && !(a<b || b<a); }
-
 function drawDomain(idx) {
   normalizeCurrentDomain()
   const { startPoint, endPoint } = currentDomain
-  if (domains.find((v) => arrays_equal(v.startPoint, startPoint))) {
+  if (['startPoint', 'endPoint'].some((key) => 
+    domains.find((v) => JSON.stringify(v[key]) === JSON.stringify(currentDomain[key])))
+  ) {
     console.log(true)
     return
   }
