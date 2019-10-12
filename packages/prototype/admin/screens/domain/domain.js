@@ -60,9 +60,15 @@ function registerCurrentDomain() {
   initCurrentDomain()
 }
 
+function arrays_equal(a,b) { return !!a && !!b && !(a<b || b<a); }
+
 function drawDomain(idx) {
   normalizeCurrentDomain()
   const { startPoint, endPoint } = currentDomain
+  if (domains.find((v) => arrays_equal(v.startPoint, startPoint))) {
+    console.log(true)
+    return
+  }
   for (let i = startPoint[1]; i <= endPoint[1]; i++) {
     for (let j = startPoint[0]; j <= endPoint[0]; j++) {
       setDomainState(j, i, idx)
@@ -106,7 +112,6 @@ function onClickDeleteDomain(domainID, splice = true) {
   if (splice)
     domains.splice(domainID, 1)
   const label = document.getElementById(`domain-label-${domainID}`)
-  console.log(`domain-label-${domainID}`)
   try {
     label.parentNode.removeChild(label)
   } catch (_) {}
@@ -130,7 +135,8 @@ function loadDomains() {
   domains.forEach((_, idx) => {
     onClickDeleteDomain(idx, false)
   })
-  
+
+  domains = []
   let temp = []
   try {
     temp = JSON.parse(localStorage.getItem('domains')) || []
