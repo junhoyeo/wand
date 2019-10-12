@@ -1,6 +1,6 @@
 button.domain {
   background-color: #bbe6d7;
-  border: 0.3px solid #a9ddcb;
+  border: 0.3px solid #a9ddcb !important;
 }
 
 button.start,

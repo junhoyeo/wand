@@ -27,7 +27,7 @@ function initCurrentDomain() {
   }
 }
 
-function drawLabel(domain, idx) {
+function drawLabel(domain, idx, size=20) {
   const { startPoint, endPoint } = domain
   const centerX = startPoint[0] + Math.round((endPoint[0] - startPoint[0]) / 2)
   const centerY = startPoint[1] + Math.round((endPoint[1] - startPoint[1]) / 2)
@@ -48,10 +48,10 @@ function drawLabel(domain, idx) {
         <img src="../../../assets/icons/pencil-alt-gray.svg">
       </div>
     </span>`
-  label.style.left = `calc(${centerX * 20}px - 1.5rem)`
-  label.style.top = `calc(${centerY * 20}px - 0.5rem)`
-  const sketchWrap = document.getElementById('sketch-wrap')
-  sketchWrap.insertBefore(label, sketch)    
+  label.style.left = `calc(${centerX * size}px - 1.5rem)`
+  label.style.top = `calc(${centerY * size}px - 0.5rem)`
+  const sketchOverlay = document.getElementById('sketch-overlay')
+  sketchOverlay.appendChild(label)
 }
 
 function registerCurrentDomain() {
@@ -60,7 +60,7 @@ function registerCurrentDomain() {
   initCurrentDomain()
 }
 
-function drawDomain(idx) {
+function drawDomain(idx, size) {
   normalizeCurrentDomain()
   const { startPoint, endPoint } = currentDomain
   if (['startPoint', 'endPoint'].some((key) => 
@@ -74,7 +74,7 @@ function drawDomain(idx) {
       setDomainState(j, i, idx)
     }
   }
-  drawLabel(currentDomain, idx)
+  drawLabel(currentDomain, idx, size)
   registerCurrentDomain()
 }
 
@@ -124,14 +124,14 @@ function onClickDeleteDomain(domainID, splice = true) {
   })
 }
 
-function renderDomains(temp) {
+function renderDomains(temp, size=20) {
   temp.forEach((domain, idx) => {
     currentDomain = domain
-    drawDomain(idx)
+    drawDomain(idx, size)
   })
 }
 
-function loadDomains() {
+function loadDomains(size=20) {
   domains.forEach((_, idx) => {
     onClickDeleteDomain(idx, false)
   })
@@ -143,10 +143,8 @@ function loadDomains() {
   } catch (_) {
     temp = []
   }
-  renderDomains(temp)
+  renderDomains(temp, size)
 }
-
-loadDomains()
 
 function saveDomains() {
   localStorage.setItem('domains', JSON.stringify(domains))

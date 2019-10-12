@@ -1,0 +1,10 @@
+div.label button.delete,
+div.label div img {
+  display: none;
+}
+
+div.label div span {
+  font-size: 1rem;
+  padding: 0.1rem 1rem;
+  margin-bottom: 2px;
+}
