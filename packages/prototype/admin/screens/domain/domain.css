@@ -10,6 +10,7 @@ button.end {
 }
 
 /* 라벨 */
+
 div.label {
   position: absolute;
   display: flex;
@@ -21,18 +22,23 @@ div.label {
   box-shadow: 0 0 20px 6px rgba(21, 19, 19, .07);
 }
 
-div.label div {
+div.label.hovered {
+  z-index: 1;
+}
+
+div.label div.name {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-div.label div span {
+div.label div.name span {
   font-size: 1.2rem;
   padding: 0.3rem 0.8rem;
 }
 
-div.label div img {
+div.label div.name img {
+  cursor: pointer;
   height: 0.8rem;
   width: 0.8rem;
   margin: 0 0.5rem;
@@ -51,7 +57,23 @@ div.label button.delete {
   background-color: #fa5252;
 }
 
-div.label img {
+div.label img.cancel {
+  cursor: pointer;
   height: 1.2rem;
   width: 1.2rem;
+}
+
+div.label input {
+  font-size: 1rem;
+  margin: 0.3rem 0.8rem;
+  margin-right: 0;
+  width: 100px;
+  border: none;
+  border-bottom: 1.5px solid lightgray;
+}
+
+div.label input:active,
+div.label input:focus {
+  outline: none;
+  border-bottom: 1.5px solid #3fbdb9;
 }
