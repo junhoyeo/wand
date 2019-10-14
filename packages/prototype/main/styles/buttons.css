@@ -1,0 +1,49 @@
+/* 하단 버튼 */
+
+div.button-row {
+  width: -webkit-fill-available;
+  position: absolute;
+  padding-bottom: 1rem;
+  display: flex;
+  bottom: 0;
+  padding: 1.5rem 1.2rem;
+  padding-top: 5rem;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8) 20%, white 50%);
+}
+
+div.button-row button {
+  cursor: pointer;
+  background-color: gray;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.8rem 3.8rem;
+  border-radius: 8px;
+  transition: background-color 150ms;
+}
+
+div.button-row button:first-child {
+  margin-right: 1rem;
+}
+
+div.button-row button:first-child:focus {
+  background-color: rgb(114, 114, 114);
+}
+
+div.button-row button:first-child:hover {
+  background-color: rgb(95, 95, 95);
+}
+
+div.button-row button:last-child {
+  background-color: #45BA9B;
+}
+
+div.button-row button:last-child:focus {
+  background-color: rgb(66, 189, 156);
+}
+
+div.button-row button:last-child:hover {
+  background-color: rgb(59, 161, 134);
+}

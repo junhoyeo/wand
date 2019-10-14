@@ -138,8 +138,17 @@ button#confirm {
   justify-content: center;
   align-items: center;
   background-color: #45BA9B;
-  padding: 0.5rem 3rem;
+  padding: 0.8rem 3.8rem;
   font-size: 1.2rem;
   font-weight: bold;
   border-radius: 8px;
+  transition: background-color 150ms;
+}
+
+button#confirm:focus {
+  background-color: rgb(66, 189, 156);
+}
+
+button#confirm:hover {
+  background-color: rgb(59, 161, 134);
 }

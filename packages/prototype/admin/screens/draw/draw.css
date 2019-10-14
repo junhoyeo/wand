@@ -75,31 +75,3 @@ div.button-row button {
 div.button-row button:first-child {
   margin-right: 1rem;
 }
-
-#back {
-  background-color: gray;
-}
-
-#back:hover {
-  background-color: rgb(151, 151, 151);
-}
-
-#back:active {
-  background-color: rgb(112, 112, 112);
-}
-
-#save {
-  background-color: mediumturquoise;
-}
-
-#save:hover {
-  background-color: rgb(63, 189, 185);
-}
-
-#save:active {
-  background-color: rgb(89, 216, 212);
-}
-
-code {
-  width: min-content;
-}
