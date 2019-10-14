@@ -41,3 +41,44 @@ header p.desc {
   font-weight: 700;
   color: #525252;
 }
+
+header span.header-bar {
+  display: flex;
+  width: fit-content;
+  border-radius: 25px;
+  margin-top: 0.8rem;
+}
+
+header span.header-level {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-left: none;
+  padding: 0.1rem 1rem;
+  color: #525252;
+  font-weight: 900;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+header span.header-level.selected {
+  background-color: #000000;
+  border: 1px solid #3a3a3a;
+  color: white;
+}
+
+header span.header-level:first-child {
+  border-left: 1px solid #dee2e6;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding-left: 1.3rem;
+}
+
+header span.header-level:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding-right: 1.3rem;
+}
+
+header span.header-level:hover {
+  background-color: #fafafa;
+}
