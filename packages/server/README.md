@@ -67,10 +67,54 @@ GET `/place/domains/{placeID}`
 ```
 
 ### Get recommendations cards with Place ID
-Place ID를 이용해 해당 장소의 추천 카드를 가져옵니다.
+GET `/place/rec/{placeID}`
+
+> Place ID를 이용해 해당 장소의 추천 카드를 가져옵니다.
+
+```json
+{
+  "title": "오늘 점심은 여기서 어때요?",
+  "cards": [
+    {
+      "id": 0,
+      "name": "바베큐장",
+      "hours": "18:00 ~ 20:00",
+      "location": "야외 공간",
+      "image": "../assets/places/barbecue.jpg"
+    },
+    {
+      "id": 1,
+      "name": "카페",
+      "hours": "06:00 ~ 24:00",
+      "location": "숙소동 2층",
+      "image": "../assets/places/cafe.jpg"
+    },
+  ]
+}
+```
 
 ### Get route with Place ID and location information
-Place ID와 시작 위치, 도착 위치 정보를 받아 경로와 예상 이동 시간을 구합니다.
+POST `/place/route/{placeID}`
+
+```json
+{
+  "start": [1, 1],
+  "end": [2, 5]
+}
+```
+
+> Place ID와 시작 위치, 도착 위치 정보를 받아 경로와 예상 이동 시간을 구합니다.
+ 
+```json
+{
+  "route": {
+    "minutes": 3,
+    "path": [
+      [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [2, 5]
+    ]
+  }
+}
+```
 
 ## Search API
 
