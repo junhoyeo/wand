@@ -60,8 +60,8 @@ router.get('/route/:placeID/:user/:dest', (req, res, _) => {
   const grid = new PF.Grid(map)
   const finder = new PF.AStarFinder()
   const path = finder.findPath(
-    userLocation[0],
     userLocation[1],
+    userLocation[0],
     destination[0],
     destination[1],
     grid
