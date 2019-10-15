@@ -20,7 +20,26 @@ router.get('/map/:placeID', (req, res, _) => {
 router.get('/domains/:placeID', (req, res, _) => {
   const { placeID } = req.params;
   return res.json({
-    domains: db.get('domains').filter({ placeId: Number(placeID) }).value()
+    domains: db.get('domains').filter({ placeID: Number(placeID) }).value()
+  })
+})
+
+router.get('/rec/:placeID', (req, res, _) => {
+  const { placeID } = req.params;
+  return res.json({
+    title: '오늘 점심은 여기서 어때요?',
+    cards: db.get('rooms').filter({ placeID: Number(placeID) }).value()
+      .filter(room => room.id < 2)
+      .map(room => Object.assign(room.card, {
+        id: room.id
+      }))
+  })
+})
+
+router.get('/room/:placeID/:roomID', (req, res, _) => {
+  const { roomID } = req.params;
+  return res.json({
+    room: db.get('rooms').find({ id: Number(roomID) }).value()
   })
 })
 

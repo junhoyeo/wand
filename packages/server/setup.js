@@ -5,7 +5,7 @@ const testMap = rawMap.split(',').map(line =>
   line.split('').map(cell => Number(cell)))
 
 const testDomains = [
-  { label: "대강당", start: [1, 1], end: [8, 28] }, 
+  { label: "대강당", start: [1, 1], end: [8, 28], roomID: 2 }, 
   { label: "휴게실", start: [10, 22], end: [18, 28] },
   { label: "화장실", start: [17, 1], end: [21, 5] },
   { label: "121 진행실", start: [29, 5], end: [33, 10] },
@@ -17,10 +17,59 @@ const testDomains = [
   { label: "사무실", start: [27, 22], end: [43, 28] }
 ]
 
+const testRooms = [
+  {
+    id: 0,
+    card: {
+      name: '바베큐장',
+      image: 'http://localhost:3000/images/bbq-card.png',
+      hours: '18:00 ~ 20:00',
+      location: '야외 공간',
+    },
+    cover: {
+      image: 'http://localhost:3000/images/bbq-cover.jpg',
+      title: '맛있게 즐기는 가을, 바베큐',
+      desc: '낭만 가득히 즐기는 바베큐. 고객별 선호도를 분석하여 정성이 담긴 차별화된 메뉴의 식사를 제공합니다.'
+    },
+    name: '바베큐장',
+    desc: '남녀노소, 모든 방문객들에게 인기 만점인 야외 바베큐장입니다.',
+    cards: []
+  },
+  {
+    id: 1,
+    card: {
+      name: '카페',
+      image: 'https://bit.ly/2IR32nG',
+      hours: '06:00 ~ 24:00',
+      location: '야외 공간',
+    },
+    cover: {
+      image: 'https://bit.ly/31bEcVO',
+      title: '맛있게 즐기는 가을, 바베큐',
+      desc: '낭만 가득히 즐기는 바베큐. 고객별 선호도를 분석하여 정성이 담긴 차별화된 메뉴의 식사를 제공합니다.'
+    },
+    name: '바베큐장',
+    desc: '남녀노소, 모든 방문객들에게 인기 만점인 야외 바베큐장입니다.',
+    cards: []
+  },
+  {
+    id: 2,
+    cover: {
+      image: 'http://localhost:3000/images/hall-cover.png',
+      title: '최대 1,200석의 강의장 시설',
+      desc: '강의, 프리젠테이션, 그룹 토의 등에 필요한 각종 교육 기자재를 완비하여 최적의 교육 지원이 가능합니다.'
+    },
+    name: '대강당',
+    desc: '각종 행사를 개최하고 있는 대웅경영개발원의 대강당입니다.',
+    cards: []
+  }
+]
+
 db.defaults({
   places: [],
   maps: [],
   domains: [],
+  rooms: [],
 })
   .write()
 
@@ -42,11 +91,21 @@ db.get('maps')
   .write()
 
 testDomains.forEach((domain, idx) => 
-  db.get('domains').push({
-    id: idx,
-    placeId: 0,
-    data: domain
-  })
+  db.get('domains').push(
+    Object.assign(domain, {
+      id: idx,
+      placeID: 0
+    })
+  )
     .write())
+
+testRooms.forEach(room => {
+  db.get('rooms').push(
+    Object.assign(room, {
+      placeID: 0,
+    })
+  )
+    .write()
+})
 
 console.log(db.getState())

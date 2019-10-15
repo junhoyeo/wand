@@ -49,17 +49,17 @@ GET `/place/domains/{placeID}`
   "domains": [
     {
       "id": 0,
-      "placeId": 0,
+      "placeID": 0,
       "data": { "label": "대강당", "start": [1, 1], "end": [8, 28] }
     },
     {
       "id": 1,
-      "placeId": 0,
+      "placeID": 0,
       "data": { "label": "휴게실", "start": [10, 22], "end": [18, 28] }
     },
     {
       "id": 2,
-      "placeId": 0,
+      "placeID": 0,
       "data": { "label": "화장실", "start": [17, 1], "end": [21, 5] }
     }
   ]
@@ -92,6 +92,9 @@ GET `/place/rec/{placeID}`
   ]
 }
 ```
+
+### Get room info with Place ID and Room ID
+GET `/place/room/{placeID}/{roomID}`
 
 ### Get route with Place ID and location information
 POST `/place/route/{placeID}`
