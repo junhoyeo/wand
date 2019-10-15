@@ -1,4 +1,5 @@
 const roomID = gup['roomID']
+let roomPoint = []
 
 const roomElements = {
   wrap: document.getElementById('header-wrap'),
@@ -11,10 +12,17 @@ const roomElements = {
 }
 
 ;(async function initRoom() {
-  const { data: { room } } = await axios.get(`http://localhost:3000/place/room/0/${roomID}`)
+  const { data: { room, point } } = await axios.get(`http://localhost:3000/place/room/0/${roomID}`)
   roomElements.wrap.style.backgroundImage = `url('${room.cover.image}')`
   roomElements.cover.title.innerText = room.cover.title
   roomElements.cover.desc.innerText = room.cover.desc
   roomElements.name.innerText = room.name
   roomElements.desc.innerText = room.desc
+  roomPoint = point
 })();
+
+function onClickPath() {
+  if (!roomPoint.length)
+    alert('경로를 찾을 수 없습니다.')
+  location.href = `${rootURL}/main?x=${gup['x']}&y=${gup['y']}&destX=${roomPoint[0]}&destY=${roomPoint[1]}`
+}

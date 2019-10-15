@@ -43,3 +43,22 @@ function renderPlaceCard(place) {
 initSearchQueries()
 
 document.body.removeEventListener('click', drawEventListener)
+
+// 검색인지 확인
+
+const destination = [
+  gup['destX'],
+  gup['destY'],
+]
+
+;(async function() {
+  if (destination[0]) {
+    // 검색
+    // userLocation => destination
+    const { data: { route: { path } } } = await axios.get(`http://localhost:3000/place/route/0/${userLocation.join(',')}/${destination.join(',')}`)
+    path.forEach((point, idx) => {
+      if ([0, path.length - 1].includes(idx)) return
+      setPathState(point)
+    })
+  }
+})()

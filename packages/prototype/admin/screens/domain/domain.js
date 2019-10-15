@@ -39,7 +39,7 @@ function drawLabel(domain, idx, size=20) {
   const centerY = start[1] + Math.round((end[1] - start[1]) / 2)
 
   const label = document.createElement('div')
-  const labelHref = `${rootURL}/main/screens/info?roomID=${domain.roomID}`
+  const labelHref = `${rootURL}/main/screens/info?roomID=${domain.roomID}&x=${userLocation[0]}&y=${userLocation[1]}`
   label.id = `domain-label-${idx}`
   label.className = 'label'
   label.onmouseover = () => onMouseoverLabel(idx)

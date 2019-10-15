@@ -60,20 +60,10 @@ button.cell.selected {
   border: 0.3px solid rgb(53, 53, 53);
 }
 
-/* button.start {
-  background-color: #469c8e;
-  border: 0.3px solid #469c8e;
-}
-
-button.end {
-  background-color: #d1637e;
-  border: 0.3px solid #d1637e;
-}
-
 button.path {
-  background-color: #b6e9d8;
-  border: 0.3px solid #b6e9d8;
-} */
+  background-color: #2d9684;
+  border: 0.3px solid #2d9684 !important;
+}
 
 /* #search-route {
   cursor: pointer;
