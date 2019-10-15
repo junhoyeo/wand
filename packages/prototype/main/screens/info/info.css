@@ -41,7 +41,6 @@ button:active {
 
 div#header-wrap {
   height: 35%;
-  background-image: url('../../../assets/places/cafe.jpg');
   background-position: center;
   background-size: cover;
 }

@@ -12,14 +12,10 @@ const cards = {
   list: document.getElementById('cards-list')
 }
 
-function onClickPlaceCard(place) {
-  location.href = `${rootURL}/main/screens/info?card=${place.name}`
-}
-
 function renderPlaceCard(place) {
-  const card = document.createElement('div')
+  const card = document.createElement('a')
   card.className = 'item'
-  card.onclick = onClickPlaceCard
+  card.href = `${rootURL}/main/screens/info?roomID=${place.id}`
   card.innerHTML = `
     <img src="${place.image}">
     <div class="info">
@@ -37,8 +33,9 @@ function renderPlaceCard(place) {
   header.desc.innerText = '컨벤션대강당 로비 타일 교체 작업 중 출입을 제한합니다.'
 })();
 
-(function initCards() {
-  cards.title.innerText = '오늘 점심은 여기서 어때요?'
+(async function initCards() {
+  const { data: { title, cards: places } } = await axios.get('http://localhost:3000/place/rec/0')
+  cards.title.innerText = title
   renderPlaceCard(places[0])
   renderPlaceCard(places[1])
 })();
