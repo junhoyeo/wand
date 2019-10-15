@@ -31,18 +31,20 @@ function exportMap() {
   return map
 }
 
-(loadMap = function () {
+(loadMap = async function () {
 
   function setTileState(tile, state) {
     tile.className = `cell${ state ? ' selected' : '' }`
   }
 
-  let map = []
-  try {
-    map = JSON.parse(localStorage.getItem('map')) || defaultMap
-  } catch (_) {
-    map = defaultMap
-  }
+  // let map = []
+  // try {
+  //   // map = JSON.parse(localStorage.getItem('map')) || defaultMap
+  //   axios.get('http://localhost:3000/place/map/0')
+  // } catch (_) {
+  //   map = defaultMap
+  // }
+  const { data: { map: { map } } } = await axios.get('http://localhost:3000/place/map/0')
   const tiles = Array.prototype.slice.call(document.getElementsByClassName('cell'))
   tiles.forEach((tile, idx) => {
     setTileState(tile, map[Math.floor(idx / 60)][idx % 60])
@@ -53,7 +55,7 @@ function exportMap() {
 
 let lastDrag = false
 
-function drawEventListener(event) {
+async function drawEventListener(event) {
   const element = event.target
   const classes = element.className.split(' ')
   const map = JSON.stringify(exportMap())
@@ -72,7 +74,7 @@ function drawEventListener(event) {
     localStorage.setItem('map', map)
     window.alert('저장했습니다.')
   } else if (element.id === 'discard') {
-    loadMap()
+    await loadMap()
   }
 }
 

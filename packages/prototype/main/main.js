@@ -1,4 +1,6 @@
-const map = loadMap()
+const map = (async function() {
+  await loadMap();
+})();
 
 const header = {
   title: document.getElementById('header-title'),
