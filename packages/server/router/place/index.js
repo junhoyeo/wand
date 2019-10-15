@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import PF from 'pathfinding';
 import db from '../../database';
 
 const router = Router();
@@ -38,8 +39,37 @@ router.get('/rec/:placeID', (req, res, _) => {
 
 router.get('/room/:placeID/:roomID', (req, res, _) => {
   const { roomID } = req.params;
+  const roomDomain = db.get('domains').find({ roomID: Number(roomID) }).value()
+  console.log(roomDomain)
+  const roomCenter = (roomDomain) ? [
+    roomDomain.start[0] + Math.round((roomDomain.end[0] - roomDomain.start[0]) / 2),
+    roomDomain.start[1] + Math.round((roomDomain.end[1] - roomDomain.start[1]) / 2)
+  ] : []
   return res.json({
-    room: db.get('rooms').find({ id: Number(roomID) }).value()
+    room: db.get('rooms').find({ id: Number(roomID) }).value(),
+    point: roomCenter,
+  })
+})
+
+router.get('/route/:placeID/:user/:dest', (req, res, _) => {
+  const { placeID, user, dest } = req.params;
+  const userLocation = user.split(',').map((v) => Number(v))
+  const destination = dest.split(',').map((v) => Number(v))
+
+  const map = db.get('maps').find({ id:Number(placeID) }).value().map
+  const grid = new PF.Grid(map)
+  const finder = new PF.AStarFinder()
+  const path = finder.findPath(
+    userLocation[0],
+    userLocation[1],
+    destination[0],
+    destination[1],
+    grid
+  )
+  return res.json({
+    route: {
+      path
+    }
   })
 })
 

@@ -97,7 +97,7 @@ GET `/place/rec/{placeID}`
 GET `/place/room/{placeID}/{roomID}`
 
 ### Get route with Place ID and location information
-POST `/place/route/{placeID}`
+GET `/place/route/{placeID}/{startX},{startY}/{endX},{endY}`
 
 ```json
 {

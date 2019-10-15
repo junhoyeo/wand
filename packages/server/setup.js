@@ -6,7 +6,7 @@ const testMap = rawMap.split(',').map(line =>
 
 const testDomains = [
   { label: "대강당", start: [1, 1], end: [8, 28], roomID: 2 }, 
-  { label: "휴게실", start: [10, 22], end: [18, 28] },
+  { label: "휴게실", start: [10, 22], end: [18, 28], roomID: 3 },
   { label: "화장실", start: [17, 1], end: [21, 5] },
   { label: "121 진행실", start: [29, 5], end: [33, 10] },
   { label: "사무실", start: [35, 5], end: [39, 10] },
@@ -55,11 +55,22 @@ const testRooms = [
   {
     id: 2,
     cover: {
-      image: 'http://localhost:3000/images/hall-cover.png',
+      image: 'http://localhost:3000/images/hall-cover.jpg',
       title: '최대 1,200석의 강의장 시설',
       desc: '강의, 프리젠테이션, 그룹 토의 등에 필요한 각종 교육 기자재를 완비하여 최적의 교육 지원이 가능합니다.'
     },
     name: '대강당',
+    desc: '각종 행사를 개최하고 있는 대웅경영개발원의 대강당입니다.',
+    cards: []
+  },
+  {
+    id: 3,
+    cover: {
+      image: 'http://localhost:3000/images/hall-cover.jpg',
+      title: '최대 1,200석의 강의장 시설',
+      desc: '강의, 프리젠테이션, 그룹 토의 등에 필요한 각종 교육 기자재를 완비하여 최적의 교육 지원이 가능합니다.'
+    },
+    name: '휴게실',
     desc: '각종 행사를 개최하고 있는 대웅경영개발원의 대강당입니다.',
     cards: []
   }
