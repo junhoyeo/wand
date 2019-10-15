@@ -3,13 +3,68 @@
 ## Place API
 
 ### Get place info with Place ID
-Place ID를 이용해 장소 정보를 구합니다.
+GET `/place/info/{placeID}`
+
+> Place ID를 이용해 장소 정보를 구합니다.
+
+```json
+{
+  "place": {
+    "id": 0,
+    "type": "교육 센터",
+    "name": "대웅경영개발원",
+    "address": "경기도 용인시 처인구 포곡읍 두계로 72",
+    "notice": "컨벤션대강당 로비 타일 교체 작업 중 출입을 제한합니다."
+  }
+}
+```
 
 ### Get place map with Place ID
-Place ID를 이용해 장소 지도를 구합니다.
+GET `/place/map/{placeID}`
+
+> Place ID를 이용해 장소 지도를 구합니다.
+
+```json
+{
+  "map": {
+    "id": 0,
+    "map": [
+      [1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 1],
+      [1, 0, 0, 0, 1],
+      [1, 0, 0, 0, 1],
+      [1, 1, 1, 1, 1]
+    ]
+  }
+}
+```
 
 ### Get place domains with Place ID
-Place ID를 이용해 장소 영역을 구합니다.
+GET `/place/domains/{placeID}`
+
+> Place ID를 이용해 장소 영역을 구합니다.
+
+```json
+{
+  "domains": [
+    {
+      "id": 0,
+      "placeId": 0,
+      "data": { "label": "대강당", "start": [1, 1], "end": [8, 28] }
+    },
+    {
+      "id": 1,
+      "placeId": 0,
+      "data": { "label": "휴게실", "start": [10, 22], "end": [18, 28] }
+    },
+    {
+      "id": 2,
+      "placeId": 0,
+      "data": { "label": "화장실", "start": [17, 1], "end": [21, 5] }
+    }
+  ]
+}
+```
 
 ### Get recommendations cards with Place ID
 Place ID를 이용해 해당 장소의 추천 카드를 가져옵니다.
@@ -41,3 +96,6 @@ Place ID 장소 안의 쿼리 검색 결과를 반환합니다.
 
 ### Render QR code with Place ID and location
 Place ID와 지도 좌표로 해당 위치의 QR 코드를 생성합니다.
+
+<!-- ### Render map as html for iframe
+렌더링된 맵을 제공합니다. -->

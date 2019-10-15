@@ -1,0 +1,45 @@
+html, body {
+  margin: 0;
+}
+
+#sketch-wrap {
+  min-width: 900px;
+  min-height: 450px;
+  border-radius: 0.75em;
+  touch-action: none;
+  user-select: none;
+  transform: translate(0px, 0px);
+  position: relative;
+}
+
+div#sketch-overlay {
+  margin-top: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#sketch {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+}
+
+#sketch div {
+  height: 15px;
+}
+
+button.cell {
+  height: 15px;
+  width: 15px;
+  border: 0.3px solid white;
+}
+
+button.cell.selected {
+  background-color: rgb(53, 53, 53);
+  border: 0.3px solid rgb(53, 53, 53);
+}
