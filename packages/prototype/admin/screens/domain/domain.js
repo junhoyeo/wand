@@ -3,13 +3,13 @@ document.body.removeEventListener('click', drawEventListener)
 let domains = []
 let currentDomain = {
   label: '라벨',
-  startPoint: [3, 3],
-  endPoint: [3, 3],
+  start: [3, 3],
+  end: [3, 3],
 }
-let isStartPoint = true
+let isStart = true
 
 function normalizeCurrentDomain() {
-  // 올바른 형태의 startPoint, endPoint로 변경
+  // 올바른 형태의 start, end로 변경
 }
 
 function setDomainState(x, y, idx) {
@@ -24,21 +24,22 @@ function setDomainState(x, y, idx) {
 function initCurrentDomain() {
   currentDomain = {
     label: '라벨',
-    startPoint: [3, 3],
-    endPoint: [3, 3],
+    start: [3, 3],
+    end: [3, 3],
   }
 }
 
 function drawLabel(domain, idx, size=20) {
   const {
-    startPoint,
-    endPoint,
+    start,
+    end,
     label: labelText
   } = domain
-  const centerX = startPoint[0] + Math.round((endPoint[0] - startPoint[0]) / 2)
-  const centerY = startPoint[1] + Math.round((endPoint[1] - startPoint[1]) / 2)
-  
+  const centerX = start[0] + Math.round((end[0] - start[0]) / 2)
+  const centerY = start[1] + Math.round((end[1] - start[1]) / 2)
+
   const label = document.createElement('div')
+  const labelHref = `${rootURL}/main/screens/info?roomID=${domain.roomID}`
   label.id = `domain-label-${idx}`
   label.className = 'label'
   label.onmouseover = () => onMouseoverLabel(idx)
@@ -50,8 +51,10 @@ function drawLabel(domain, idx, size=20) {
       <img class="cancel" src="../../../assets/icons/times-solid.svg">
     </button>
     <div class="name">
-      <span id="${`domain-name-${idx}`}">
-        ${labelText}
+      <span>
+        <a id="${`domain-name-${idx}`}" href="${labelHref}">
+          ${labelText}
+        </a>
       </span>
       <img
         id="${`domain-icon-${idx}`}"
@@ -73,15 +76,15 @@ function registerCurrentDomain() {
 
 function drawDomain(idx, size) {
   normalizeCurrentDomain()
-  const { startPoint, endPoint } = currentDomain
-  if (['startPoint', 'endPoint'].some((key) => 
+  const { start, end } = currentDomain
+  if (['start', 'end'].some((key) => 
     domains.find((v) => JSON.stringify(v[key]) === JSON.stringify(currentDomain[key])))
   ) {
     console.log(true)
     return
   }
-  for (let i = startPoint[1]; i <= endPoint[1]; i++) {
-    for (let j = startPoint[0]; j <= endPoint[0]; j++) {
+  for (let i = start[1]; i <= end[1]; i++) {
+    for (let j = start[0]; j <= end[0]; j++) {
       setDomainState(j, i, idx)
     }
   }
@@ -105,15 +108,15 @@ function clickEventListener(event) {
     const elementID = Number(element.id)
     const elementPoint = [elementID % 60, Math.floor(elementID / 60)]
 
-    if (isStartPoint) {
-      currentDomain.startPoint = elementPoint
+    if (isStart) {
+      currentDomain.start = elementPoint
       element.className += ' start'
     } else {
-      currentDomain.endPoint = elementPoint
+      currentDomain.end = elementPoint
       element.className += ' end'
       drawDomain(domains.length)
     }
-    isStartPoint = !isStartPoint
+    isStart = !isStart
   }
 }
 
@@ -201,18 +204,13 @@ function renderDomains(temp, size=20) {
   })
 }
 
-function loadDomains(size=20) {
+async function loadDomains(size=20) {
   domains.forEach((_, idx) => {
     onClickDeleteDomain(idx, false)
   })
 
   domains = []
-  let temp = []
-  try {
-    temp = JSON.parse(localStorage.getItem('domains')) || []
-  } catch (_) {
-    temp = []
-  }
+  const { data: { domains: temp } } = await axios.get('http://localhost:3000/place/domains/0')
   renderDomains(temp, size)
 }
 
