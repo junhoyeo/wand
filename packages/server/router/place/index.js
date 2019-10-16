@@ -40,7 +40,6 @@ router.get('/rec/:placeID', (req, res, _) => {
 router.get('/room/:placeID/:roomID', (req, res, _) => {
   const { roomID } = req.params;
   const roomDomain = db.get('domains').find({ roomID: Number(roomID) }).value()
-  console.log(roomDomain)
   const roomCenter = (roomDomain) ? [
     roomDomain.start[0] + Math.round((roomDomain.end[0] - roomDomain.start[0]) / 2),
     roomDomain.start[1] + Math.round((roomDomain.end[1] - roomDomain.start[1]) / 2)

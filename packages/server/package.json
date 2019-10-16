@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "nodemon --exec babel-node ./bin/www",
-    "setup": "babel-node ./setup.js"
+    "setup": "babel-node ./setup.js",
+    "update": "rm db.json && npm run setup"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",

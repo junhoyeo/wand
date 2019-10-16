@@ -33,24 +33,68 @@ const testRooms = [
     },
     name: '바베큐장',
     desc: '남녀노소, 모든 방문객들에게 인기 만점인 야외 바베큐장입니다.',
-    cards: []
+    cards: [
+      {
+        name: "바베큐 백립",
+        type: "앙트레 플래터",
+        price: 15000,
+        image: "http://localhost:3000/images/bbq-back-rib.jpg"
+      },
+      {
+        name: "델리미트 브런치",
+        type: "브런치 플래터",
+        price: 14800,
+        image: "http://localhost:3000/images/deli-meats-brunch.jpg"
+      },
+      {
+        name: "루빈 샌드위치",
+        type: "샌드위치 플래터",
+        price: 16000,
+        image: "http://localhost:3000/images/reuben-sandwich.jpg"
+      }
+    ]
   },
   {
     id: 1,
     card: {
       name: '카페',
-      image: 'https://bit.ly/2IR32nG',
+      image: 'http://localhost:3000/images/cafe-card.png',
       hours: '06:00 ~ 24:00',
       location: '야외 공간',
     },
     cover: {
-      image: 'https://bit.ly/31bEcVO',
-      title: '맛있게 즐기는 가을, 바베큐',
-      desc: '낭만 가득히 즐기는 바베큐. 고객별 선호도를 분석하여 정성이 담긴 차별화된 메뉴의 식사를 제공합니다.'
+      image: 'http://localhost:3000/images/cafe-cover.png',
+      title: '차별화된 커피 경험을 누리다.',
+      desc: '매년 가을 출시되며 더욱 나아지고 있는 애니버서리 블렌드는 진하고 독특한 풍미가 특징인 스타벅스만의 특별한 원두입니다.'
     },
-    name: '바베큐장',
-    desc: '남녀노소, 모든 방문객들에게 인기 만점인 야외 바베큐장입니다.',
-    cards: []
+    name: '카페',
+    desc: '본관 숙소동 1층에 위치한 아름다운 분위기의 카페입니다.',
+    cards: [
+      {
+        name: "화이트 타이거 프라푸치노",
+        type: "프라푸치노",
+        price: 6500,
+        image: "http://localhost:3000/images/9200000002403.jpg"
+      },
+      {
+        name: "콜드 폼 콜드 브루",
+        type: "콜드 브루",
+        price: 5800,
+        image: "http://localhost:3000/images/9200000000949.jpg"
+      },
+      {
+        name: "자바 칩 프라푸치노",
+        type: "프라푸치노",
+        price: 6100,
+        image: "http://localhost:3000/images/168016.jpg"
+      },
+      {
+        name: "샷 그린 티 라떼",
+        type: "티바나",
+        price: 5900,
+        image: "http://localhost:3000/images/9200000000170.jpg"
+      },
+    ]
   },
   {
     id: 2,
