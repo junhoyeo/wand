@@ -76,6 +76,6 @@ function onClickDownload() {
   anchor.click()
 
   setTimeout(() => {
-    document.body.removeChild(a)
+    document.body.removeChild(anchor)
   }, 100)
 }

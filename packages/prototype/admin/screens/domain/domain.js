@@ -144,7 +144,7 @@ function onClickDeleteDomain(domainID, splice = true) {
   })
 }
 
-function onClickEditLabel(event, domainID) {
+async function onClickEditLabel(event, domainID) {
   const element = event.target
   const label = document.querySelector(`#domain-label-${domainID} div.name`)
   const labelName = document.getElementById(`domain-name-${domainID}`)
@@ -181,9 +181,9 @@ function onClickEditLabel(event, domainID) {
     // 편집 input 박스 삭제
     labelInput.parentElement.parentNode.removeChild(labelInput.parentElement)
 
-    // domains에 반영, localStorage에 저장
+    // domains에 반영
     domains[domainID].label = newLabelText
-    saveDomains()
+    await saveDomains()
   }
 }
 
@@ -217,9 +217,11 @@ async function loadDomains(size=20) {
 
   domains = []
   const { data: { domains: temp } } = await axios.get('http://localhost:3000/place/domains/0')
-  renderDomains(temp, size)
+  renderDomains(temp.domains, size)
 }
 
-function saveDomains() {
-  localStorage.setItem('domains', JSON.stringify(domains))
+async function saveDomains() {
+  const { status } = await axios.put('http://localhost:3000/admin/domains/0', { domains })
+  if (status === 200)
+    window.alert('저장했습니다.')
 }

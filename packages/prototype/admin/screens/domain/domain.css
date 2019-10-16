@@ -34,6 +34,7 @@ div.label div.name {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: max-content;
 }
 
 div.label div.name span {

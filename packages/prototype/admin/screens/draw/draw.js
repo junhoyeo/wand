@@ -37,13 +37,6 @@ function exportMap() {
     tile.className = `cell${ state ? ' selected' : '' }`
   }
 
-  // let map = []
-  // try {
-  //   // map = JSON.parse(localStorage.getItem('map')) || defaultMap
-  //   axios.get('http://localhost:3000/place/map/0')
-  // } catch (_) {
-  //   map = defaultMap
-  // }
   const { data: { map: { map } } } = await axios.get('http://localhost:3000/place/map/0')
   const tiles = Array.prototype.slice.call(document.getElementsByClassName('cell'))
   tiles.forEach((tile, idx) => {
