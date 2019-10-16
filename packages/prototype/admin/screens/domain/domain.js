@@ -39,7 +39,15 @@ function drawLabel(domain, idx, size=20) {
   const centerY = start[1] + Math.round((end[1] - start[1]) / 2)
 
   const label = document.createElement('div')
-  const labelHref = `${rootURL}/main/screens/info?roomID=${domain.roomID}&x=${userLocation[0]}&y=${userLocation[1]}`
+  const labelInner = (function () {
+    if (!location.href.includes('admin')) {
+      const labelHref = `${rootURL}/main/screens/info?roomID=${domain.roomID}&x=${userLocation[0]}&y=${userLocation[1]}`
+      return `
+        <a id="${`domain-name-${idx}`}" href="${labelHref}">
+          ${labelText}
+        </a>`
+    } else return labelText
+  })()
   label.id = `domain-label-${idx}`
   label.className = 'label'
   label.onmouseover = () => onMouseoverLabel(idx)
@@ -52,9 +60,7 @@ function drawLabel(domain, idx, size=20) {
     </button>
     <div class="name">
       <span>
-        <a id="${`domain-name-${idx}`}" href="${labelHref}">
-          ${labelText}
-        </a>
+        ${labelInner}
       </span>
       <img
         id="${`domain-icon-${idx}`}"

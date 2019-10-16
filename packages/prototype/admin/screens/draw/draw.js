@@ -71,8 +71,11 @@ async function drawEventListener(event) {
     latestElement = element
   }
   if (element.id === 'save') {
-    localStorage.setItem('map', map)
-    window.alert('저장했습니다.')
+    const { status } = await axios.put('http://localhost:3000/admin/map/0', {
+      map: JSON.parse(map),
+    })
+    if (status === 200)
+      window.alert('저장했습니다.')
   } else if (element.id === 'discard') {
     await loadMap()
   }
