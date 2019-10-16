@@ -37,7 +37,7 @@ div#qrcode-container {
   height: 10rem;
   width: 10rem;
   background-color: white;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 0.5rem;
   border: 10px solid #3fbdb9;
   border-radius: 8px;
   display: flex;

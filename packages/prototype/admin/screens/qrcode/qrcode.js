@@ -1,6 +1,6 @@
 document.body.removeEventListener('click', drawEventListener)
 
-const qrcode = new QRCode('qrcode')
+const qrcodeImage = document.getElementById('qrcode')
 const QRcontainer = document.getElementById('qrcode-container')
 let isQRcontainerInit = false
 
@@ -11,12 +11,10 @@ function initCells() {
   })
 }
 
-function generateQRcode(x, y) {
-  const content = {
-    id: '507f1f77bcf86cd799439011', // example id
-    x, y,
-  }
-  qrcode.makeCode(JSON.stringify(content))
+async function getQRcode(x, y, z=1) {
+  const { data: { qrcode } } = 
+    await axios.get(`http://localhost:3000/admin/render/qrcode/0/${x},${y},${z}`)
+  return qrcode
 }
 
 function moveQRcontainer(cellX, cellY) {
@@ -24,7 +22,7 @@ function moveQRcontainer(cellX, cellY) {
   QRcontainer.style.top = `calc(${cellY * 20}px - 1rem)`
 }
 
-function clickEventListener(event) {
+async function clickEventListener(event) {
   const element = event.target
   const classes = element.className.split(' ')
   if (lastDrag) {
@@ -38,7 +36,10 @@ function clickEventListener(event) {
       initCells()
       cellX = element.id % 60
       cellY = Math.floor(element.id / 60)
-      generateQRcode(cellX, cellY)
+
+      const qrcode = await getQRcode(cellX, cellY)
+      qrcodeImage.src = qrcode
+
       if (!isQRcontainerInit) {
         isQRcontainerInit = true
         QRcontainer.style.display = 'flex'
@@ -67,7 +68,6 @@ function onClickDownload() {
     return
   }
 
-  const qrcodeImage = document.querySelector('#qrcode img')
   const anchor = document.createElement('a')
   anchor.style.display = 'none'
   anchor.href = qrcodeImage.src
