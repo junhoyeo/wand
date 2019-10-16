@@ -75,6 +75,13 @@ div.header-content p.desc {
 
 div.main {
   padding: 1.1rem 1.5rem;
+  height: 65%;
+  overflow-y: auto;
+  padding-bottom: 10rem;
+}
+
+div.main::-webkit-scrollbar {
+  display: none;
 }
 
 div.main h1.name {
