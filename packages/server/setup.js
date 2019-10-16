@@ -140,19 +140,16 @@ db.get('places')
 
 db.get('maps')
   .push({
-    id: 0,
+    placeID: 0,
     map: testMap,
   })
   .write()
 
-testDomains.forEach((domain, idx) => 
-  db.get('domains').push(
-    Object.assign(domain, {
-      id: idx,
-      placeID: 0
-    })
-  )
-    .write())
+db.get('domains').push({
+  placeID: 0,
+  domains: testDomains,
+})
+  .write()
 
 testRooms.forEach(room => {
   db.get('rooms').push(

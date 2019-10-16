@@ -136,6 +136,11 @@ PUT `/admin/place/{placeID}`
 
 > 기존 장소를 업데이트합니다.
 
+### Update map
+PUT `/admin/map/{placeID}`
+
+> 기존 지도를 업데이트합니다.
+
 <!-- ### Delete place
 > 기존 장소를 삭제합니다. -->
 
