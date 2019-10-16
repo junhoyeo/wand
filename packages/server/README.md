@@ -127,22 +127,30 @@ Place ID 장소 안의 쿼리 검색 결과를 반환합니다.
 ## Admin API
 
 ### Create new place
-새로운 장소를 생성합니다.
+POST `/admin/place`
+
+> 새로운 장소를 생성합니다.
 
 ### Update place
-기존 장소를 업데이트합니다.
+PUT `/admin/place/{placeID}`
 
-### Delete place
-기존 장소를 삭제합니다.
+> 기존 장소를 업데이트합니다.
 
-### Create new domain
-새로운 영역을 생성합니다.
+<!-- ### Delete place
+> 기존 장소를 삭제합니다. -->
+
+<!-- ### Create new domain
+> 새로운 영역을 생성합니다. -->
 
 ### Update domain
-기존 영역 목록을 업데이트합니다.
+PUT `/admin/domains/{placeID}`
+
+> 기존 영역 목록을 업데이트합니다.
 
 ### Render QR code with Place ID and location
-Place ID와 지도 좌표로 해당 위치의 QR 코드를 생성합니다.
+GET `/admin/render/qrcode/{placeID}/{x},{y},{z}`
+
+> Place ID와 지도 좌표로 해당 위치의 QR 코드를 생성합니다.
 
 <!-- ### Render map as html for iframe
-렌더링된 맵을 제공합니다. -->
+> 렌더링된 맵을 제공합니다. -->
