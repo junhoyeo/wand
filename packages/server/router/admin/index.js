@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import QRCode from 'qrcode'
+
 import db from '../../database';
 
 const router = Router();
@@ -24,8 +26,17 @@ router.put('/domains/:placeID', (req, res, _) => {
 router.get('/render/qrcode/:placeID/:coords', (req, res, _) => {
   // coord: 'x,y,z'
   const { placeID, coords } = req.params;
-  const geodata = coords.split(',')
-  return res.json({})
+  const [ x, y, z ] = coords.split(',')
+  const content = {
+    id: placeID,
+    x, y, z,
+  }
+  QRCode.toDataURL(JSON.stringify(content))
+    .then((qrcode) => {
+      return res.json({
+        qrcode
+      })
+    })
 })
 
 export default router;
