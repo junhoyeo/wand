@@ -12,6 +12,14 @@ const cards = {
   list: document.getElementById('cards-list')
 }
 
+let isCardsOpen = false
+
+function onClickToggleCards () {
+  const card = document.getElementById('card')
+  isCardsOpen = !isCardsOpen
+  card.style.bottom = (isCardsOpen) ? 0 : '-15.3rem';
+}
+
 function renderPlaceCard(place) {
   const card = document.createElement('a')
   card.className = 'item'

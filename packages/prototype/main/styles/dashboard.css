@@ -5,15 +5,37 @@ a {
   color: inherit;
 }
 
+div#card-toggle {
+  align-self: center;
+  margin: 1rem 0;
+  width: 8rem;
+  height: 10px;
+  border-radius: 25px;
+  background-color: rgb(243, 243, 243);
+  transition: background-color 0.2s linear;
+}
+
+div#card-toggle:hover {
+  background-color: rgb(218, 218, 218);
+}
+
 div.card {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: -15.3rem;
   width: -webkit-fill-available;
   padding: 1.5rem;
-  position: absolute;
-  bottom: 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  padding-top: 0.5rem;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
   background-color: white;
   box-shadow: 0 2px 20px 12px rgba(21, 19, 19, .07);
+}
+
+div.card.active {
+  position: absolute;
+  bottom: 0;
 }
 
 div.card a.item {
