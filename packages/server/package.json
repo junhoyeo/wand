@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "start": "babel-node ./bin/www",
     "dev": "nodemon --exec babel-node ./bin/www",
     "setup": "babel-node ./setup.js",
     "update": "rm db.json && npm run setup"

@@ -7,6 +7,13 @@ const router = Router();
 
 // 새로운 장소 생성
 router.post('/place', (req, res, _) => {
+  const { place } = req.body;
+
+  // check keys for place
+  ;['type', 'name', 'address', 'notice'].forEach((key) => {
+    if (!place.hasOwnProperty(key))
+      return res.sendStatus(401);
+  });
   return res.json({})
 })
 
