@@ -119,6 +119,16 @@ GET `/place/route/{placeID}/{startX},{startY}/{endX},{endY}`
 }
 ```
 
+### Get issues with Place ID
+GET `/place/issue/{placeID}`
+
+> Place ID로 해당 장소에 있는 이슈 목록을 가져옵니다.
+
+### Create issue with Place ID and location
+POST `/place/issue/{placeID}/{x},{y},{z}`
+
+> Place ID와 좌표를 받아 해당 위치에 이슈를 생성합니다.
+
 ## Search API
 
 ### Search with Place ID and query
