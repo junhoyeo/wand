@@ -216,12 +216,12 @@ async function loadDomains(size=20) {
   })
 
   domains = []
-  const { data: { domains: temp } } = await axios.get('http://localhost:3000/place/domains/0')
+  const { data: { domains: temp } } = await axios.get('http://wandapi.inudevs.com/place/domains/0')
   renderDomains(temp.domains, size)
 }
 
 async function saveDomains() {
-  const { status } = await axios.put('http://localhost:3000/admin/domains/0', { domains })
+  const { status } = await axios.put('http://wandapi.inudevs.com/admin/domains/0', { domains })
   if (status === 200)
     window.alert('저장했습니다.')
 }
