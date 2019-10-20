@@ -104,3 +104,22 @@ img#user-location {
   width: 3.2rem;
   transition: 300ms linear all;
 }
+
+button#issue {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 8rem;
+  left: 0;
+}
+
+button#issue img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
