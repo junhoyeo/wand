@@ -117,6 +117,17 @@ const testRooms = [
     name: '휴게실',
     desc: '각종 행사를 개최하고 있는 대웅경영개발원의 대강당입니다.',
     cards: []
+  },
+  {
+    id: 4,
+    cover: {
+      image: 'http://localhost:3000/images/new.png',
+      title: '내일도 출근하고 싶은 사무실',
+      desc: '보기 좋고, 일하기 좋은 공간을 만들었습니다.',
+    },
+    name: '회의실 B',
+    desc: '입주자 전용 회의실입니다.',
+    cards: []
   }
 ]
 
