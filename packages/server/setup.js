@@ -22,12 +22,12 @@ const testRooms = [
     id: 0,
     card: {
       name: '바베큐장',
-      image: 'http://localhost:3000/images/bbq-card.png',
+      image: 'http://localhost:9000/images/bbq-card.png',
       hours: '18:00 ~ 20:00',
       location: '야외 공간',
     },
     cover: {
-      image: 'http://localhost:3000/images/bbq-cover.jpg',
+      image: 'http://localhost:9000/images/bbq-cover.jpg',
       title: '맛있게 즐기는 가을, 바베큐',
       desc: '낭만 가득히 즐기는 바베큐. 고객별 선호도를 분석하여 정성이 담긴 차별화된 메뉴의 식사를 제공합니다.'
     },
@@ -38,19 +38,19 @@ const testRooms = [
         name: "바베큐 백립",
         type: "앙트레 플래터",
         price: 15000,
-        image: "http://localhost:3000/images/bbq-back-rib.jpg"
+        image: "http://localhost:9000/images/bbq-back-rib.jpg"
       },
       {
         name: "델리미트 브런치",
         type: "브런치 플래터",
         price: 14800,
-        image: "http://localhost:3000/images/deli-meats-brunch.jpg"
+        image: "http://localhost:9000/images/deli-meats-brunch.jpg"
       },
       {
         name: "루빈 샌드위치",
         type: "샌드위치 플래터",
         price: 16000,
-        image: "http://localhost:3000/images/reuben-sandwich.jpg"
+        image: "http://localhost:9000/images/reuben-sandwich.jpg"
       }
     ]
   },
@@ -58,12 +58,12 @@ const testRooms = [
     id: 1,
     card: {
       name: '카페',
-      image: 'http://localhost:3000/images/cafe-card.png',
+      image: 'http://localhost:9000/images/cafe-card.png',
       hours: '06:00 ~ 24:00',
       location: '야외 공간',
     },
     cover: {
-      image: 'http://localhost:3000/images/cafe-cover.png',
+      image: 'http://localhost:9000/images/cafe-cover.png',
       title: '차별화된 커피 경험을 누리다.',
       desc: '매년 가을 출시되며 더욱 나아지고 있는 애니버서리 블렌드는 진하고 독특한 풍미가 특징인 스타벅스만의 특별한 원두입니다.'
     },
@@ -74,32 +74,32 @@ const testRooms = [
         name: "화이트 타이거 프라푸치노",
         type: "프라푸치노",
         price: 6500,
-        image: "http://localhost:3000/images/9200000002403.jpg"
+        image: "http://localhost:9000/images/9200000002403.jpg"
       },
       {
         name: "콜드 폼 콜드 브루",
         type: "콜드 브루",
         price: 5800,
-        image: "http://localhost:3000/images/9200000000949.jpg"
+        image: "http://localhost:9000/images/9200000000949.jpg"
       },
       {
         name: "자바 칩 프라푸치노",
         type: "프라푸치노",
         price: 6100,
-        image: "http://localhost:3000/images/168016.jpg"
+        image: "http://localhost:9000/images/168016.jpg"
       },
       {
         name: "샷 그린 티 라떼",
         type: "티바나",
         price: 5900,
-        image: "http://localhost:3000/images/9200000000170.jpg"
+        image: "http://localhost:9000/images/9200000000170.jpg"
       },
     ]
   },
   {
     id: 2,
     cover: {
-      image: 'http://localhost:3000/images/hall-cover.jpg',
+      image: 'http://localhost:9000/images/hall-cover.jpg',
       title: '최대 1,200석의 강의장 시설',
       desc: '강의, 프리젠테이션, 그룹 토의 등에 필요한 각종 교육 기자재를 완비하여 최적의 교육 지원이 가능합니다.'
     },
@@ -110,7 +110,7 @@ const testRooms = [
   {
     id: 3,
     cover: {
-      image: 'http://localhost:3000/images/hall-cover.jpg',
+      image: 'http://localhost:9000/images/hall-cover.jpg',
       title: '최대 1,200석의 강의장 시설',
       desc: '강의, 프리젠테이션, 그룹 토의 등에 필요한 각종 교육 기자재를 완비하여 최적의 교육 지원이 가능합니다.'
     },
@@ -121,7 +121,7 @@ const testRooms = [
   {
     id: 4,
     cover: {
-      image: 'http://localhost:3000/images/new.png',
+      image: 'http://localhost:9000/images/new.png',
       title: '내일도 출근하고 싶은 사무실',
       desc: '보기 좋고, 일하기 좋은 공간을 만들었습니다.',
     },
