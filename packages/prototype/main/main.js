@@ -42,7 +42,7 @@ function renderPlaceCard(place) {
 })();
 
 (async function initCards() {
-  const { data: { title, cards: places } } = await axios.get('http://wandapi.inudevs.com/place/rec/0')
+  const { data: { title, cards: places } } = await axios.get('http://localhost:9000/place/rec/0')
   cards.title.innerText = title
   renderPlaceCard(places[0])
   renderPlaceCard(places[1])
@@ -63,7 +63,7 @@ const destination = [
   if (destination[0]) {
     // 검색
     // userLocation => destination
-    const { data: { route: { path } } } = await axios.get(`http://wandapi.inudevs.com/place/route/0/${userLocation.join(',')}/${destination.join(',')}`)
+    const { data: { route: { path } } } = await axios.get(`http://localhost:9000/place/route/0/${userLocation.join(',')}/${destination.join(',')}`)
     path.forEach((point, idx) => {
       if ([0, path.length - 1].includes(idx)) return
       setPathState(point)

@@ -34,7 +34,7 @@ function renderCards(cards) {
 }
 
 ;(async function initRoom() {
-  const { data: { room, point } } = await axios.get(`http://wandapi.inudevs.com/place/room/0/${roomID}`)
+  const { data: { room, point } } = await axios.get(`http://localhost:9000/place/room/0/${roomID}`)
   roomElements.wrap.style.backgroundImage = `url('${room.cover.image}')`
   roomElements.cover.title.innerText = room.cover.title
   roomElements.cover.desc.innerText = room.cover.desc

@@ -37,7 +37,7 @@ function exportMap() {
     tile.className = `cell${ state ? ' selected' : '' }`
   }
 
-  const { data: { map: { map } } } = await axios.get('http://wandapi.inudevs.com/place/map/0')
+  const { data: { map: { map } } } = await axios.get('http://localhost:9000/place/map/0')
   const tiles = Array.prototype.slice.call(document.getElementsByClassName('cell'))
   tiles.forEach((tile, idx) => {
     setTileState(tile, map[Math.floor(idx / 60)][idx % 60])
@@ -64,7 +64,7 @@ async function drawEventListener(event) {
     latestElement = element
   }
   if (element.id === 'save') {
-    const { status } = await axios.put('http://wandapi.inudevs.com/admin/map/0', {
+    const { status } = await axios.put('http://localhost:9000/admin/map/0', {
       map: JSON.parse(map),
     })
     if (status === 200)

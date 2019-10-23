@@ -13,7 +13,7 @@ function initCells() {
 
 async function getQRcode(x, y, z=1) {
   const { data: { qrcode } } = 
-    await axios.get(`http://wandapi.inudevs.com/admin/render/qrcode/0/${x},${y},${z}`)
+    await axios.get(`http://localhost:9000/admin/render/qrcode/0/${x},${y},${z}`)
   return qrcode
 }
 
